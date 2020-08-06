@@ -3,7 +3,7 @@
 .~c9*
 
 # Python
-*.py[cod]
+*.py[co]
 __pycache__/
 
 # Venv
