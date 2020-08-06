@@ -8,9 +8,23 @@
 
 import importlib
 import os
+import platform
 from sys import version_info
 
-print_debug_statements = False
+print_debug_statements = True
+
+platform_name = platform.system()
+if print_debug_statements:
+    print(f"platform_name = {platform_name}")
+_ok_folder: str
+if "linux" in platform_name.lower() or "ubuntu" in platform_name.lower():
+    _ok_folder = "_linux"
+elif "windows" in platform_name.lower():
+    _ok_folder = "_windows"
+elif "mac" in platform_name.lower() or "darwin" in platform_name.lower():
+    _ok_folder = "_mac"
+if print_debug_statements:
+    print(f"_ok_folder = {_ok_folder}")
 
 if version_info >= (2, 6, 0):
 
@@ -31,7 +45,10 @@ if version_info >= (2, 6, 0):
                     for file in files:
                         print(len(path) * "---", file)
 
-            fp, pathname, description = imp.find_module("_ok", [dirname(__file__)])
+            cur_dir = dirname(__file__)
+            fp, pathname, description = imp.find_module(
+                "_ok", [os.path.join(cur_dir, _ok_folder)]
+            )
         except ImportError as e:
             if print_debug_statements:
                 print(f"There was a caught ImportError: {e}")
@@ -45,7 +62,7 @@ if version_info >= (2, 6, 0):
         if fp is not None:
             try:
                 # _mod = imp.load_module("_ok", fp, pathname, description)
-                _mod = importlib.import_module("._ok", "xem_wrapper")
+                _mod = importlib.import_module("._ok", f"xem_wrapper.{_ok_folder}")
             finally:
                 fp.close()
             if print_debug_statements:

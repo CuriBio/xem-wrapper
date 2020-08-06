@@ -500,7 +500,7 @@ def test_open_board__returns_xem_as_front_panel_object_if_device_is_connected(mo
 
 
 def test_open_board__raises_error_if_no_device_is_found(mocker):
-    # no mock needed as there is no device connected in this environment
+    mocker.patch.object(FrontPanelDevices, "Open", autospec=True, return_value=None)
     with pytest.raises(OpalKellyNoDeviceFoundError):
         open_board()
 
