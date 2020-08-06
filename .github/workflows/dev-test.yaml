@@ -59,6 +59,12 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: venv\Scripts\Activate.ps1
 
+      - name: Install libboost
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt install libboost-all-dev
+      - name: Move .so lib
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /usr/local/lib/
 
       - name: Display Pip Version and confirm environment empty
         run: |
