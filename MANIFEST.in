@@ -1,4 +1,4 @@
-recursive-include stdlib_utils **
+recursive-include src/xem_wrapper **
 include LICENSE
 include *rst
 include *py
