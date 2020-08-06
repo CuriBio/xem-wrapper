@@ -119,7 +119,7 @@ repos:
         - --rcfile=src/pylintrc
         - --ignore-patterns=.*~.*,.*ok\.py$
         files: 'src/.*\.py$'
-        exclude: ('.*\~.*')|(prerelease.py)
+        exclude: ('.*\~.*')|(prerelease.py)|(src/opalkelly_wrapper/ok.py)
         verbose: true
     -   id: pylint-pass-with-displayed-warnings
         name: pylint-tests
@@ -129,7 +129,7 @@ repos:
         - --rcfile=tests/pylintrc
         - --ignore-patterns=.*~.*
         files: 'tests/.*\.py$'
-        exclude: ('.*\~.*')|(prerelease.py)
+        exclude: ('.*\~.*')|(prerelease.py)(src/opalkelly_wrapper/ok.py)
         verbose: true
     -   id: python-check-no-print-statments
         exclude: (prerelease.py)|(src/xem_wrapper/ok.py)
