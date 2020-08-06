@@ -23,7 +23,7 @@ jobs:
         os:
           - "ubuntu-latest"
           # - "macos-latest"  Tanner (8/6/20): Currently unsupported. upgrading FP may help
-          - "windows-latest"
+          # - "windows-latest"  Tanner (8/6/20): windows tests are currently inconsistent, likely an FP related issue
         python-version:
             - 3.7
             - 3.8
