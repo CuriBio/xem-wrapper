@@ -1,3 +1,13 @@
+
+
+Linux Install:
+    sudo apt install libboost-all-dev
+    sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.dylib /usr/local/lib/
+
+MacOS Install:
+    install_name_tool -change libokFrontPanel.dylib /usr/local/lib/libokFrontPanel.dylib _ok.so
+
+
 .. image:: https://github.com/CuriBio/xem-wrapper/workflows/Dev/badge.svg?branch=development
    :alt: Development Branch Build
 
