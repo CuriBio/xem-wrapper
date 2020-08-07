@@ -62,9 +62,12 @@ jobs:
       - name: Install libboost
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt install libboost-all-dev
-      - name: Move .so lib
+      - name: Move .so lib (Linux)
         if: matrix.os == 'ubuntu-latest'
         run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
+      - name: Move .so lib (MacOS)
+        if: matrix.os == 'macos-latest'
+        run: sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
       - name: Display Pip Version and confirm environment empty
         run: |
