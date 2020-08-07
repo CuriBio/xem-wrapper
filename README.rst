@@ -1,11 +1,10 @@
-
-
 Linux Install:
     sudo apt install libboost-all-dev
-    sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.dylib /usr/local/lib/
+    sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /usr/local/lib/
 
 MacOS Install:
     install_name_tool -change libokFrontPanel.dylib /usr/local/lib/libokFrontPanel.dylib _ok.so
+    sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
 
 .. image:: https://img.shields.io/pypi/v/xem-wrapper.svg
@@ -22,13 +21,6 @@ MacOS Install:
 
 .. image:: https://codecov.io/gh/CuriBio/xem-wrapper/branch/development/graph/badge.svg
   :target: https://codecov.io/gh/CuriBio/xem-wrapper
-
-..
-   If this library uses readthedocs then put that badge here
-   .. image:: https://readthedocs.org/projects/xem-wrapper/badge/?version=latest
-     :target: https://xem-wrapper.readthedocs.io/en/latest/?badge=latest
-     :alt: Documentation Status
-
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
