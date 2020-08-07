@@ -64,7 +64,7 @@ jobs:
         run: sudo apt install libboost-all-dev
       - name: Move .so lib
         if: matrix.os == 'ubuntu-latest'
-        run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /usr/local/lib/ ; ls /usr/local/lib/
+        run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
 
       - name: Display Pip Version and confirm environment empty
         run: |
@@ -81,10 +81,10 @@ jobs:
         # only enable pre-commit on the fastest job
         run: pre-commit install
 
-      # - name: Run pre-commit hooks
-      #   # only enable pre-commit on the fastest job
-      #   if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.7
-      #   run: pre-commit run -a
+      - name: Run pre-commit hooks
+        # only enable pre-commit on the fastest job
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.7
+        run: pre-commit run -a
 
       - name: Run Tests
         run: pytest -xsvv --cov-report=xml
