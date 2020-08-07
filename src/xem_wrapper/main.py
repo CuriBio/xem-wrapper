@@ -57,12 +57,8 @@ def read_wire_out(xem: okCFrontPanel, ep_addr: int) -> int:
     Return:
         The value of the desired wire-out.
     """
-    parse_hardware_return_code(
-        xem.UpdateWireOuts()  # type: ignore[no-untyped-call] # noqa: F821
-    )
-    result: int = (
-        xem.GetWireOutValue(ep_addr)  # type: ignore[no-untyped-call] # noqa: F821
-    )
+    parse_hardware_return_code(xem.UpdateWireOuts())
+    result: int = (xem.GetWireOutValue(ep_addr))
     parse_hardware_return_code(result)
     return result
 
@@ -76,12 +72,8 @@ def set_wire_in(xem: okCFrontPanel, ep_addr: int, value: int, mask: int) -> None
         value: bitwise value to set on the wire
         mask: bit mask to apply to the given value
     """
-    parse_hardware_return_code(
-        xem.SetWireInValue(ep_addr, value, mask)  # type: ignore[no-untyped-call] # noqa: F821
-    )
-    parse_hardware_return_code(
-        xem.UpdateWireIns()  # type: ignore[no-untyped-call] # noqa: F821
-    )
+    parse_hardware_return_code(xem.SetWireInValue(ep_addr, value, mask))
+    parse_hardware_return_code(xem.UpdateWireIns())
 
 
 def read_from_fifo(xem: okCFrontPanel) -> bytearray:
@@ -104,9 +96,7 @@ def read_from_fifo(xem: okCFrontPanel) -> bytearray:
     data_buffer = bytearray(num_words_to_read * 4)
     # enable read mode
     set_wire_in(xem, WIRE_IN_RESET_MODE, 0x0002, 0x0002)
-    read_result = xem.ReadFromBlockPipeOut(  # type: ignore[no-untyped-call] # noqa: F821
-        PIPE_OUT_FIFO, BLOCK_SIZE, data_buffer
-    )
+    read_result = xem.ReadFromBlockPipeOut(PIPE_OUT_FIFO, BLOCK_SIZE, data_buffer)
     parse_hardware_return_code(read_result)
     # disable read mode
     set_wire_in(xem, WIRE_IN_RESET_MODE, 0x0000, 0x0002)
@@ -247,7 +237,7 @@ def open_board() -> okCFrontPanel:
     Return:
         xem: okCFrontPanel object used to control the XEM7310
     """
-    devices = FrontPanelDevices()  # type: ignore[no-untyped-call] # noqa: F821
+    devices = FrontPanelDevices()  # type: ignore
     xem = cast(okCFrontPanel, devices.Open())
     if not xem:
         raise OpalKellyNoDeviceFoundError()
@@ -263,9 +253,9 @@ def initialize_board(xem: okCFrontPanel, bit_file_name: Optional[str] = None) ->
     """
     if bit_file_name is not None:
         check_file_exists(bit_file_name)
-        hardware_return_code = xem.ConfigureFPGA(bit_file_name)  # type: ignore[no-untyped-call] # noqa: F821
+        hardware_return_code = xem.ConfigureFPGA(bit_file_name)
         parse_hardware_return_code(hardware_return_code)
-    if not xem.IsFrontPanelEnabled():  # type: ignore[no-untyped-call] # noqa: F821
+    if not xem.IsFrontPanelEnabled():
         raise OpalKellyFrontPanelNotSupportedError()
 
 
@@ -278,9 +268,9 @@ def check_file_exists(file_path: str) -> None:
 
 
 def _get_device_info(xem: okCFrontPanel) -> okTDeviceInfo:
-    info = cast(okTDeviceInfo, okTDeviceInfo())  # type: ignore[no-untyped-call] # noqa: F821
+    info = cast(okTDeviceInfo, okTDeviceInfo())  # type: ignore
 
-    hardware_return_code = xem.GetDeviceInfo(info)  # type: ignore[no-untyped-call] # noqa: F821
+    hardware_return_code = xem.GetDeviceInfo(info)
     parse_hardware_return_code(hardware_return_code)
     return info
 
@@ -341,7 +331,7 @@ def set_device_id(xem: okCFrontPanel, new_id: str) -> None:
                 can contain unicode characters.
     """
     validate_device_id(new_id)
-    hardware_return_code = xem.SetDeviceID(new_id)  # type: ignore[no-untyped-call] # noqa: F821
+    hardware_return_code = xem.SetDeviceID(new_id)
     parse_hardware_return_code(hardware_return_code)
 
 
@@ -373,5 +363,5 @@ def activate_trigger_in(xem: okCFrontPanel, ep_addr: int, bit: int) -> None:
         ep_addr: address of given trigger in endpoint
         bit: bit of the trigger in to set. Should only be one nonzero bit
     """
-    hardware_return_code = xem.ActivateTriggerIn(ep_addr, bit)  # type: ignore[no-untyped-call] # noqa: F821
+    hardware_return_code = xem.ActivateTriggerIn(ep_addr, bit)
     parse_hardware_return_code(hardware_return_code)
