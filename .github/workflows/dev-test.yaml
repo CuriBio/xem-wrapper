@@ -59,13 +59,13 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: venv\Scripts\Activate.ps1
 
-      - name: Install libboost
+      - name: Install libboost (Linux)
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt install libboost-all-dev
-      - name: Move .so lib (Linux)
+      - name: Move .so file (Linux)
         if: matrix.os == 'ubuntu-latest'
         run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
-      - name: Move .so lib (MacOS)
+      - name: Move .dylib file (MacOS)
         if: matrix.os == 'macos-latest'
         run: sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
