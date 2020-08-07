@@ -1,9 +1,10 @@
 Linux Install:
     sudo apt install libboost-all-dev
-    sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.dylib /usr/local/lib/
+    sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /usr/local/lib/
 
 MacOS Install:
     install_name_tool -change libokFrontPanel.dylib /usr/local/lib/libokFrontPanel.dylib _ok.so
+    sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
 
 .. image:: https://img.shields.io/pypi/v/xem-wrapper.svg
