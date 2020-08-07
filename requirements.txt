@@ -1,1 +1,3 @@
 # pip install -r requirements.txt
+
+stdlib-utils==0.2.1

@@ -5,14 +5,15 @@ from setuptools import setup
 
 
 setup(
-    name="change_this_to_name_of_package",
+    name="xem_wrapper",
     version="0.1",
-    description="CREATE A DESCRIPTION",
-    url="https://github.com/CuriBio/CHANGE_THIS_TO_NAME_OF_REPO",
+    description="Functions for interacting with a XEM device",
+    url="https://github.com/CuriBio/xem-wrapper",
     author="Curi Bio",
     author_email="contact@curibio.com",
     license="MIT",
     packages=find_packages("src"),
     package_dir={"": "src"},
-    install_requires=[],
+    include_package_data=True,
+    install_requires=["stdlib_utils>=0.1.20"],
 )
