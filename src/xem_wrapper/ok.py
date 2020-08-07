@@ -9,7 +9,7 @@ import platform
 from sys import version_info as _swig_python_version_info
 import weakref
 
-print_debug_statements = True
+print_debug_statements = False
 
 platform_name = platform.system()
 if print_debug_statements:
