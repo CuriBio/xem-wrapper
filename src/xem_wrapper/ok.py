@@ -31,8 +31,6 @@ if _swig_python_version_info >= (2, 7, 0):
 
         pkg = __name__.rpartition(".")[0]
         mname = ".".join((pkg, "_ok")).lstrip(".")
-        if print_debug_statements:
-            print("###", mname)
         try:
             return importlib.import_module(mname)
         except ImportError:
