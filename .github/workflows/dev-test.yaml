@@ -25,7 +25,6 @@ jobs:
           - "macos-latest"
           - "windows-latest"
         python-version:
-            - 3.6
             - 3.7
             - 3.8
         include:
@@ -60,6 +59,15 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: venv\Scripts\Activate.ps1
 
+      - name: Install libboost (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt install libboost-all-dev
+      - name: Move .so file (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
+      - name: Move .dylib file (MacOS)
+        if: matrix.os == 'macos-latest'
+        run: sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
       - name: Display Pip Version and confirm environment empty
         run: |
@@ -93,12 +101,13 @@ jobs:
         # only upload coverage from fastest job
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.7
         uses: codecov/codecov-action@v1
+        timeout-minutes: 1
         with:
           file: ./coverage.xml
           flags: unittests
           env_vars: OS,PYTHON
           name: codecov-umbrella
-          fail_ci_if_error: true
+          fail_ci_if_error: false  # Tanner (8/7/20): once fundmental issue with codecov timeout is fixed, change this back to True
 
       - name: Run prerelease
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == 3.7
