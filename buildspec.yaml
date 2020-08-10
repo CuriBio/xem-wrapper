@@ -20,6 +20,12 @@ phases:
       #   So can't use traditional grep to just check that the name of the current branch is 'master', have to explicitly check the SHAs
       - SHA_OF_LOCAL_COMMIT=$(git branch -av | grep "*" | grep -oP " \s+\K\w+")
       - git checkout master
+      - echo "Updating apt"
+      - apt update
+      - echo "Installing libboost"
+      - apt install --assume-yes libboost-all-dev
+      - echo "Moving .so file"
+      - cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
       - echo "Creating virtual environment for Python"
       - python -m venv venv
       - echo "Entering virtual environment"
