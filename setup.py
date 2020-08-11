@@ -24,8 +24,6 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: Implementation",
-        "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Scientific/Engineering",
     ],
     install_requires=["stdlib_utils>=0.1.20"],
