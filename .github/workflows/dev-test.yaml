@@ -81,7 +81,7 @@ jobs:
         run: pip install -e .
       - name: Log full installed packages
         run: pip freeze
-        
+
       - name: Run pre-commit hooks
         if: matrix.IS_FASTEST_JOB == true
         # only enable pre-commit on the fastest job

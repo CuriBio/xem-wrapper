@@ -5,9 +5,15 @@ Transform: "AWS::Serverless-2016-10-31"
 
 # Note (Eli 5/3/30): you must connect your AWS account to your github account using OAuth manually before this will work (one-time). To do so, just attempt to create a CodeBuild project through the console--you don't need to finish creating it, just get to the point where you've created the OAuth connection.
 
-# to create: aws cloudformation deploy --stack-name=codebuild-xem-wrapper-publish-to-pypi --template-file=codebuild_formation.yaml --capabilities CAPABILITY_NAMED_IAM
+# to create: aws cloudformation deploy --stack-name=codebuild-xem-wrapper-publish-to-pypi --parameter-overrides GithubRepoName=xem-wrapper --template-file=codebuild-formation.yaml --capabilities CAPABILITY_NAMED_IAM
 
 Description: Use CodeBuild to publish Github repos to PyPi using company PyPi credentials
+
+Parameters:
+  GithubRepoName:
+    Description: A Github repository that contains the application code.
+    Type: String
+
 
 Resources:
   CodeBuildPolicy:
@@ -58,15 +64,21 @@ Resources:
             - Ref: "AWS::StackName"
       Environment:
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/standard:4.0-20.06.15
+        Image: aws/codebuild/standard:4.0-20.09.14
         Type: LINUX_CONTAINER
         EnvironmentVariables:
           - Name: PUBLISH_TO_PYPI
             Type: PLAINTEXT
             Value: "0"
+          - Name: PYTEST_RANDOMLY_SEED
+            Type: PLAINTEXT
+            Value: ""
 
       Name:
-        Ref: "AWS::StackName"
+        Fn::Join:
+          - "-"
+          - - Ref: GithubRepoName
+            - "publish-to-pypi"
       ServiceRole:
         Ref: "CodeBuildRole"
       Source:
@@ -75,7 +87,12 @@ Resources:
         GitCloneDepth: 1
 
         ReportBuildStatus: True
-        Location: "https://github.com/CuriBio/xem-wrapper/"
+        Location:
+          Fn::Join:
+            - ""
+            - - "https://github.com/CuriBio/"
+              - Ref: GithubRepoName
+              - "/"
         Type: GITHUB
 
       QueuedTimeoutInMinutes: 10
