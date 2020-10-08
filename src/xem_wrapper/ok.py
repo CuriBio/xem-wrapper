@@ -136,10 +136,10 @@ class SwigPyIterator(object):
     def value(self):
         return _ok.SwigPyIterator_value(self)
 
-    def incr(self, n: int = 1):
+    def incr(self, n=1):
         return _ok.SwigPyIterator_incr(self, n)
 
-    def decr(self, n: int = 1):
+    def decr(self, n=1):
         return _ok.SwigPyIterator_decr(self, n)
 
     def distance(self, x):
@@ -172,13 +172,13 @@ class SwigPyIterator(object):
     def __iadd__(self, n):
         return _ok.SwigPyIterator___iadd__(self, n)
 
-    def __isub__(self, n):  # type: ignore[misc]
+    def __isub__(self, n):  # type: ignore
         return _ok.SwigPyIterator___isub__(self, n)
 
     def __add__(self, n):
         return _ok.SwigPyIterator___add__(self, n)
 
-    def __sub__(self, *args):
+    def __sub__(self, *args):  # type: ignore
         return _ok.SwigPyIterator___sub__(self, *args)
 
     def __iter__(self):
@@ -303,7 +303,7 @@ class okStrings(object):
 _ok.okStrings_swigregister(okStrings)
 
 
-__version__ = "5.2.1"
+__version__ = "5.2.2"
 
 okFPGACONFIGURATIONMETHOD_NVRAM = _ok.okFPGACONFIGURATIONMETHOD_NVRAM
 okFPGACONFIGURATIONMETHOD_JTAG = _ok.okFPGACONFIGURATIONMETHOD_JTAG
@@ -1116,13 +1116,13 @@ class okCPLL22150(object):
     def SetCrystalLoad(self, capload: float) -> None:
         return _ok.okCPLL22150_SetCrystalLoad(self, capload)
 
-    def SetReference(self, freq: float, extosc) -> None:
+    def SetReference(self, freq: float, extosc: bool) -> None:
         return _ok.okCPLL22150_SetReference(self, freq, extosc)
 
     def GetReference(self) -> float:
         return _ok.okCPLL22150_GetReference(self)
 
-    def SetVCOParameters(self, p, q) -> bool:
+    def SetVCOParameters(self, p: int, q: int) -> bool:
         return _ok.okCPLL22150_SetVCOParameters(self, p, q)
 
     def GetVCOP(self) -> int:
@@ -1134,10 +1134,10 @@ class okCPLL22150(object):
     def GetVCOFrequency(self) -> float:
         return _ok.okCPLL22150_GetVCOFrequency(self)
 
-    def SetDiv1(self, divsrc, n) -> None:
+    def SetDiv1(self, divsrc, n: int) -> None:
         return _ok.okCPLL22150_SetDiv1(self, divsrc, n)
 
-    def SetDiv2(self, divsrc, n) -> None:
+    def SetDiv2(self, divsrc, n: int) -> None:
         return _ok.okCPLL22150_SetDiv2(self, divsrc, n)
 
     def GetDiv1Source(self):
@@ -1152,19 +1152,19 @@ class okCPLL22150(object):
     def GetDiv2Divider(self) -> int:
         return _ok.okCPLL22150_GetDiv2Divider(self)
 
-    def SetOutputSource(self, output, clksrc) -> None:
+    def SetOutputSource(self, output: int, clksrc) -> None:
         return _ok.okCPLL22150_SetOutputSource(self, output, clksrc)
 
-    def SetOutputEnable(self, output, enable) -> None:
+    def SetOutputEnable(self, output: int, enable: bool) -> None:
         return _ok.okCPLL22150_SetOutputEnable(self, output, enable)
 
-    def GetOutputSource(self, output):
+    def GetOutputSource(self, output: int):
         return _ok.okCPLL22150_GetOutputSource(self, output)
 
-    def GetOutputFrequency(self, output) -> float:
+    def GetOutputFrequency(self, output: int) -> float:
         return _ok.okCPLL22150_GetOutputFrequency(self, output)
 
-    def IsOutputEnabled(self, output) -> bool:
+    def IsOutputEnabled(self, output: int) -> bool:
         return _ok.okCPLL22150_IsOutputEnabled(self, output)
 
 
@@ -1199,43 +1199,43 @@ class okCPLL22393(object):
     def GetReference(self) -> float:
         return _ok.okCPLL22393_GetReference(self)
 
-    def SetPLLParameters(self, n, p, q, enable=True) -> bool:
+    def SetPLLParameters(self, n: int, p: int, q: int, enable: bool = True) -> bool:
         return _ok.okCPLL22393_SetPLLParameters(self, n, p, q, enable)
 
-    def SetPLLLF(self, n, lf) -> bool:
+    def SetPLLLF(self, n: int, lf: int) -> bool:
         return _ok.okCPLL22393_SetPLLLF(self, n, lf)
 
-    def SetOutputDivider(self, n, div) -> bool:
+    def SetOutputDivider(self, n: int, div: int) -> bool:
         return _ok.okCPLL22393_SetOutputDivider(self, n, div)
 
-    def SetOutputSource(self, n, clksrc) -> bool:
+    def SetOutputSource(self, n: int, clksrc) -> bool:
         return _ok.okCPLL22393_SetOutputSource(self, n, clksrc)
 
-    def SetOutputEnable(self, n, enable) -> None:
+    def SetOutputEnable(self, n: int, enable: bool) -> None:
         return _ok.okCPLL22393_SetOutputEnable(self, n, enable)
 
-    def GetPLLP(self, n) -> int:
+    def GetPLLP(self, n: int) -> int:
         return _ok.okCPLL22393_GetPLLP(self, n)
 
-    def GetPLLQ(self, n) -> int:
+    def GetPLLQ(self, n: int) -> int:
         return _ok.okCPLL22393_GetPLLQ(self, n)
 
-    def GetPLLFrequency(self, n) -> float:
+    def GetPLLFrequency(self, n: int) -> float:
         return _ok.okCPLL22393_GetPLLFrequency(self, n)
 
-    def GetOutputDivider(self, n) -> int:
+    def GetOutputDivider(self, n: int) -> int:
         return _ok.okCPLL22393_GetOutputDivider(self, n)
 
-    def GetOutputSource(self, n):
+    def GetOutputSource(self, n: int):
         return _ok.okCPLL22393_GetOutputSource(self, n)
 
-    def GetOutputFrequency(self, n) -> float:
+    def GetOutputFrequency(self, n: int) -> float:
         return _ok.okCPLL22393_GetOutputFrequency(self, n)
 
-    def IsOutputEnabled(self, n) -> bool:
+    def IsOutputEnabled(self, n: int) -> bool:
         return _ok.okCPLL22393_IsOutputEnabled(self, n)
 
-    def IsPLLEnabled(self, n) -> bool:
+    def IsPLLEnabled(self, n: int) -> bool:
         return _ok.okCPLL22393_IsPLLEnabled(self, n)
 
 
@@ -1331,7 +1331,7 @@ class okCFrontPanel(object):
     __swig_destroy__ = _ok.delete_okCFrontPanel
 
     @staticmethod
-    def GetErrorString(errorCode) -> str:
+    def GetErrorString(errorCode: int) -> str:
         return _ok.okCFrontPanel_GetErrorString(errorCode)
 
     def GetLastErrorMessage(self):
@@ -1342,7 +1342,7 @@ class okCFrontPanel(object):
         return _ok.okCFrontPanel_AddCustomDevice(matchInfo, devInfo)
 
     @staticmethod
-    def RemoveCustomDevice(productID,):
+    def RemoveCustomDevice(productID: int,):
         return _ok.okCFrontPanel_RemoveCustomDevice(productID)
 
     def GetHostInterfaceWidth(self) -> int:
@@ -1362,33 +1362,31 @@ class okCFrontPanel(object):
     def GetDeviceCount(self) -> int:
         return _ok.okCFrontPanel_GetDeviceCount(self)
 
-    def GetFPGAResetProfile(
-        self, method, profile  # type: ignore
-    ):
+    def GetFPGAResetProfile(self, method, profile):
         return _ok.okCFrontPanel_GetFPGAResetProfile(self, method, profile)
 
     def SetFPGAResetProfile(self, method, profile):
         return _ok.okCFrontPanel_SetFPGAResetProfile(self, method, profile)
 
-    def FlashEraseSector(self, address: int):
+    def FlashEraseSector(self, address):
         return _ok.okCFrontPanel_FlashEraseSector(self, address)
 
     def ReadRegisters(self, regs):
         return _ok.okCFrontPanel_ReadRegisters(self, regs)
 
-    def WriteRegister(self, addr: int, data: int):
+    def WriteRegister(self, addr, data):
         return _ok.okCFrontPanel_WriteRegister(self, addr, data)
 
     def WriteRegisters(self, regs):
         return _ok.okCFrontPanel_WriteRegisters(self, regs)
 
-    def GetDeviceListModel(self, num):
+    def GetDeviceListModel(self, num: int):
         return _ok.okCFrontPanel_GetDeviceListModel(self, num)
 
-    def GetDeviceListSerial(self, num) -> str:
+    def GetDeviceListSerial(self, num: int) -> str:
         return _ok.okCFrontPanel_GetDeviceListSerial(self, num)
 
-    def EnableAsynchronousTransfers(self, enable) -> None:
+    def EnableAsynchronousTransfers(self, enable: bool) -> None:
         return _ok.okCFrontPanel_EnableAsynchronousTransfers(self, enable)
 
     def OpenBySerial(self, *args):
@@ -1418,13 +1416,13 @@ class okCFrontPanel(object):
     def GetDeviceID(self) -> str:
         return _ok.okCFrontPanel_GetDeviceID(self)
 
-    def SetDeviceID(self, str) -> int:
-        return _ok.okCFrontPanel_SetDeviceID(self, str)
+    def SetDeviceID(self, string) -> int:
+        return _ok.okCFrontPanel_SetDeviceID(self, string)
 
-    def SetBTPipePollingInterval(self, interval):
+    def SetBTPipePollingInterval(self, interval: int):
         return _ok.okCFrontPanel_SetBTPipePollingInterval(self, interval)
 
-    def SetTimeout(self, timeout) -> None:
+    def SetTimeout(self, timeout: int) -> None:
         return _ok.okCFrontPanel_SetTimeout(self, timeout)
 
     def ResetFPGA(self):
@@ -1475,7 +1473,7 @@ class okCFrontPanel(object):
     def UpdateWireIns(self) -> int:
         return _ok.okCFrontPanel_UpdateWireIns(self)
 
-    def GetWireInValue(self, epAddr):
+    def GetWireInValue(self, epAddr: int) -> int:
         return _ok.okCFrontPanel_GetWireInValue(self, epAddr)
 
     def SetWireInValue(self, *args) -> int:
@@ -1484,22 +1482,22 @@ class okCFrontPanel(object):
     def UpdateWireOuts(self) -> int:
         return _ok.okCFrontPanel_UpdateWireOuts(self)
 
-    def GetWireOutValue(self, epAddr) -> int:
+    def GetWireOutValue(self, epAddr: int) -> int:
         return _ok.okCFrontPanel_GetWireOutValue(self, epAddr)
 
-    def ActivateTriggerIn(self, epAddr, bit) -> int:
+    def ActivateTriggerIn(self, epAddr: int, bit: int) -> int:
         return _ok.okCFrontPanel_ActivateTriggerIn(self, epAddr, bit)
 
     def UpdateTriggerOuts(self):
         return _ok.okCFrontPanel_UpdateTriggerOuts(self)
 
-    def IsTriggered(self, epAddr, mask: int) -> bool:
+    def IsTriggered(self, epAddr: int, mask) -> bool:
         return _ok.okCFrontPanel_IsTriggered(self, epAddr, mask)
 
-    def GetTriggerOutVector(self, epAddr) -> int:
+    def GetTriggerOutVector(self, epAddr: int):
         return _ok.okCFrontPanel_GetTriggerOutVector(self, epAddr)
 
-    def GetLastTransferLength(self) -> int:
+    def GetLastTransferLength(self):
         return _ok.okCFrontPanel_GetLastTransferLength(self)
 
     @staticmethod
@@ -1519,49 +1517,49 @@ class okCFrontPanel(object):
         return _ok.okCFrontPanel_GetAPIVersionString()
 
     @staticmethod
-    def CheckAPIVersion(major, minor, micro) -> bool:
+    def CheckAPIVersion(major: int, minor: int, micro: int) -> bool:
         return _ok.okCFrontPanel_CheckAPIVersion(major, minor, micro)
 
-    def ReadRegister(self, addr: int) -> int:
+    def ReadRegister(self, addr):
         return _ok.okCFrontPanel_ReadRegister(self, addr)
 
-    def FlashWrite(self, address: int, data):
+    def FlashWrite(self, address, data):
         return _ok.okCFrontPanel_FlashWrite(self, address, data)
 
-    def FlashRead(self, address: int, data):
+    def FlashRead(self, address, data):
         return _ok.okCFrontPanel_FlashRead(self, address, data)
 
-    def WriteToPipeIn(self, epAddr, data) -> int:
+    def WriteToPipeIn(self, epAddr: int, data):
         return _ok.okCFrontPanel_WriteToPipeIn(self, epAddr, data)
 
-    def ReadFromPipeOut(self, epAddr, data) -> int:
+    def ReadFromPipeOut(self, epAddr: int, data):
         return _ok.okCFrontPanel_ReadFromPipeOut(self, epAddr, data)
 
-    def WriteToBlockPipeIn(self, epAddr, blockSize, data) -> int:
+    def WriteToBlockPipeIn(self, epAddr: int, blockSize: int, data):
         return _ok.okCFrontPanel_WriteToBlockPipeIn(self, epAddr, blockSize, data)
 
-    def ReadFromBlockPipeOut(self, epAddr, blockSize, data) -> int:
+    def ReadFromBlockPipeOut(self, epAddr: int, blockSize: int, data):
         return _ok.okCFrontPanel_ReadFromBlockPipeOut(self, epAddr, blockSize, data)
 
-    def WriteToPipeInThr(self, epAddr, data) -> int:
+    def WriteToPipeInThr(self, epAddr: int, data):
         return _ok.okCFrontPanel_WriteToPipeInThr(self, epAddr, data)
 
-    def ReadFromPipeOutThr(self, epAddr, data) -> int:
+    def ReadFromPipeOutThr(self, epAddr: int, data):
         return _ok.okCFrontPanel_ReadFromPipeOutThr(self, epAddr, data)
 
-    def WriteToBlockPipeInThr(self, epAddr, blockSize, data) -> int:
+    def WriteToBlockPipeInThr(self, epAddr: int, blockSize: int, data):
         return _ok.okCFrontPanel_WriteToBlockPipeInThr(self, epAddr, blockSize, data)
 
-    def ReadFromBlockPipeOutThr(self, epAddr, blockSize, data) -> int:
+    def ReadFromBlockPipeOutThr(self, epAddr: int, blockSize: int, data):
         return _ok.okCFrontPanel_ReadFromBlockPipeOutThr(self, epAddr, blockSize, data)
 
-    def ReadI2C(self, addr, data):
+    def ReadI2C(self, addr: int, data):
         return _ok.okCFrontPanel_ReadI2C(self, addr, data)
 
-    def WriteI2C(self, addr, data):
+    def WriteI2C(self, addr: int, data):
         return _ok.okCFrontPanel_WriteI2C(self, addr, data)
 
-    def ConfigureFPGAFromMemory(self, data):
+    def ConfigureFPGAFromMemory(self, data) -> int:
         return _ok.okCFrontPanel_ConfigureFPGAFromMemory(self, data)
 
     def GetDeviceSensors(self,):
@@ -1575,7 +1573,7 @@ class okCFrontPanel(object):
 _ok.okCFrontPanel_swigregister(okCFrontPanel)
 
 
-def okCFrontPanel_GetErrorString(errorCode) -> str:
+def okCFrontPanel_GetErrorString(errorCode: int) -> str:
     return _ok.okCFrontPanel_GetErrorString(errorCode)
 
 
@@ -1583,7 +1581,7 @@ def okCFrontPanel_AddCustomDevice(matchInfo, devInfo=None):
     return _ok.okCFrontPanel_AddCustomDevice(matchInfo, devInfo)
 
 
-def okCFrontPanel_RemoveCustomDevice(productID,):
+def okCFrontPanel_RemoveCustomDevice(productID: int,):
     return _ok.okCFrontPanel_RemoveCustomDevice(productID)
 
 
@@ -1611,7 +1609,7 @@ def okCFrontPanel_GetAPIVersionString():
     return _ok.okCFrontPanel_GetAPIVersionString()
 
 
-def okCFrontPanel_CheckAPIVersion(major, minor, micro) -> bool:
+def okCFrontPanel_CheckAPIVersion(major: int, minor: int, micro: int) -> bool:
     return _ok.okCFrontPanel_CheckAPIVersion(major, minor, micro)
 
 
@@ -1629,13 +1627,13 @@ class okCDeviceSettings(object):
     def GetString(self, key) -> str:
         return _ok.okCDeviceSettings_GetString(self, key)
 
-    def GetInt(self, key) -> int:
+    def GetInt(self, key):
         return _ok.okCDeviceSettings_GetInt(self, key)
 
     def SetString(self, key, value) -> None:
         return _ok.okCDeviceSettings_SetString(self, key, value)
 
-    def SetInt(self, key, value: int) -> None:
+    def SetInt(self, key, value) -> None:
         return _ok.okCDeviceSettings_SetInt(self, key, value)
 
     def List(self):
@@ -1668,7 +1666,7 @@ def GetAPIVersionString():
     return _ok.GetAPIVersionString()
 
 
-def CheckAPIVersion(major, minor, micro) -> bool:
+def CheckAPIVersion(major: int, minor: int, micro: int) -> bool:
     return _ok.CheckAPIVersion(major, minor, micro)
 
 
@@ -1684,15 +1682,15 @@ class okBuffer(object):
     def IsEmpty(self) -> bool:
         return _ok.okBuffer_IsEmpty(self)
 
-    def GetSize(self) -> int:
+    def GetSize(self):
         return _ok.okBuffer_GetSize(self)
 
     __swig_destroy__ = _ok.delete_okBuffer
 
-    def __getitem__(self, n: int):
+    def __getitem__(self, n):
         return _ok.okBuffer___getitem__(self, n)
 
-    def __setitem__(self, n: int, val) -> None:
+    def __setitem__(self, n, val) -> None:
         return _ok.okBuffer___setitem__(self, n, val)
 
 
@@ -1793,10 +1791,10 @@ class FrontPanelManager(object):
     def StopMonitoring(self) -> None:
         return _ok.FrontPanelManager_StopMonitoring(self)
 
-    def EnterMonitorLoop(self, cbInfo=None, millisecondsTimeout=0) -> int:
+    def EnterMonitorLoop(self, cbInfo=None, millisecondsTimeout: int = 0) -> int:
         return _ok.FrontPanelManager_EnterMonitorLoop(self, cbInfo, millisecondsTimeout)
 
-    def ExitMonitorLoop(self, exitCode=0) -> None:
+    def ExitMonitorLoop(self, exitCode: int = 0) -> None:
         return _ok.FrontPanelManager_ExitMonitorLoop(self, exitCode)
 
     def OnDeviceAdded(self, serial) -> None:
@@ -1837,7 +1835,7 @@ class CallbackInfo(object):
 _ok.CallbackInfo_swigregister(CallbackInfo)
 
 
-def FrontPanelEmulateTestDeviceConnection(serial, connect):
+def FrontPanelEmulateTestDeviceConnection(serial, connect: bool):
     return _ok.FrontPanelEmulateTestDeviceConnection(serial, connect)
 
 
@@ -1853,7 +1851,7 @@ class okCFrontPanelDevices(object):
     def GetCount(self) -> int:
         return _ok.okCFrontPanelDevices_GetCount(self)
 
-    def GetSerial(self, num) -> str:
+    def GetSerial(self, num: int) -> str:
         return _ok.okCFrontPanelDevices_GetSerial(self, num)
 
     def Open(self, *args):
