@@ -67,7 +67,7 @@ del _swig_python_version_info
 try:
     import builtins as __builtin__
 except ImportError:
-    import __builtin__  # type: ignore[no-redef]
+    import __builtin__
 
 
 def _swig_repr(self):
@@ -133,52 +133,52 @@ class SwigPyIterator(object):
     __repr__ = _swig_repr
     __swig_destroy__ = _ok.delete_SwigPyIterator
 
-    def value(self):
+    def value(self) -> "PyObject *":
         return _ok.SwigPyIterator_value(self)
 
-    def incr(self, n: int = 1):
+    def incr(self, n: "size_t" = 1) -> "swig::SwigPyIterator *":
         return _ok.SwigPyIterator_incr(self, n)
 
-    def decr(self, n: int = 1):
+    def decr(self, n: "size_t" = 1) -> "swig::SwigPyIterator *":
         return _ok.SwigPyIterator_decr(self, n)
 
-    def distance(self, x):
+    def distance(self, x: "SwigPyIterator") -> "ptrdiff_t":
         return _ok.SwigPyIterator_distance(self, x)
 
-    def equal(self, x) -> bool:
+    def equal(self, x: "SwigPyIterator") -> "bool":
         return _ok.SwigPyIterator_equal(self, x)
 
-    def copy(self):
+    def copy(self) -> "swig::SwigPyIterator *":
         return _ok.SwigPyIterator_copy(self)
 
-    def next(self):
+    def next(self) -> "PyObject *":
         return _ok.SwigPyIterator_next(self)
 
-    def __next__(self):
+    def __next__(self) -> "PyObject *":
         return _ok.SwigPyIterator___next__(self)
 
-    def previous(self):
+    def previous(self) -> "PyObject *":
         return _ok.SwigPyIterator_previous(self)
 
-    def advance(self, n):
+    def advance(self, n: "ptrdiff_t") -> "swig::SwigPyIterator *":
         return _ok.SwigPyIterator_advance(self, n)
 
-    def __eq__(self, x) -> bool:
+    def __eq__(self, x: "SwigPyIterator") -> "bool":
         return _ok.SwigPyIterator___eq__(self, x)
 
-    def __ne__(self, x) -> bool:
+    def __ne__(self, x: "SwigPyIterator") -> "bool":
         return _ok.SwigPyIterator___ne__(self, x)
 
-    def __iadd__(self, n):
+    def __iadd__(self, n: "ptrdiff_t") -> "swig::SwigPyIterator &":
         return _ok.SwigPyIterator___iadd__(self, n)
 
-    def __isub__(self, n):  # type: ignore[misc]
+    def __isub__(self, n: "ptrdiff_t") -> "swig::SwigPyIterator &":
         return _ok.SwigPyIterator___isub__(self, n)
 
-    def __add__(self, n):
+    def __add__(self, n: "ptrdiff_t") -> "swig::SwigPyIterator *":
         return _ok.SwigPyIterator___add__(self, n)
 
-    def __sub__(self, *args):
+    def __sub__(self, *args) -> "ptrdiff_t":
         return _ok.SwigPyIterator___sub__(self, *args)
 
     def __iter__(self):
@@ -195,105 +195,115 @@ class okStrings(object):
     )
     __repr__ = _swig_repr
 
-    def iterator(self):
+    def iterator(self) -> "swig::SwigPyIterator *":
         return _ok.okStrings_iterator(self)
 
     def __iter__(self):
         return self.iterator()
 
-    def __nonzero__(self) -> bool:
+    def __nonzero__(self) -> "bool":
         return _ok.okStrings___nonzero__(self)
 
-    def __bool__(self) -> bool:
+    def __bool__(self) -> "bool":
         return _ok.okStrings___bool__(self)
 
-    def __len__(self):
+    def __len__(self) -> "std::vector< std::string >::size_type":
         return _ok.okStrings___len__(self)
 
     def __getslice__(
-        self, i, j,
-    ):
+        self,
+        i: "std::vector< std::string >::difference_type",
+        j: "std::vector< std::string >::difference_type",
+    ) -> "std::vector< std::string,std::allocator< std::string > > *":
         return _ok.okStrings___getslice__(self, i, j)
 
-    def __setslice__(self, *args) -> None:
+    def __setslice__(self, *args) -> "void":
         return _ok.okStrings___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i: "std::vector< std::string >::difference_type",
+        j: "std::vector< std::string >::difference_type",
+    ) -> "void":
         return _ok.okStrings___delslice__(self, i, j)
 
-    def __delitem__(self, *args) -> None:
+    def __delitem__(self, *args) -> "void":
         return _ok.okStrings___delitem__(self, *args)
 
-    def __getitem__(self, *args):
+    def __getitem__(self, *args) -> "std::vector< std::string >::value_type const &":
         return _ok.okStrings___getitem__(self, *args)
 
-    def __setitem__(self, *args) -> None:
+    def __setitem__(self, *args) -> "void":
         return _ok.okStrings___setitem__(self, *args)
 
-    def pop(self):
+    def pop(self) -> "std::vector< std::string >::value_type":
         return _ok.okStrings_pop(self)
 
-    def append(self, x) -> None:
+    def append(self, x: "std::vector< std::string >::value_type const &") -> "void":
         return _ok.okStrings_append(self, x)
 
-    def empty(self) -> bool:
+    def empty(self) -> "bool":
         return _ok.okStrings_empty(self)
 
-    def size(self):
+    def size(self) -> "std::vector< std::string >::size_type":
         return _ok.okStrings_size(self)
 
-    def swap(self, v) -> None:
+    def swap(self, v: "okStrings") -> "void":
         return _ok.okStrings_swap(self, v)
 
-    def begin(self):
+    def begin(self) -> "std::vector< std::string >::iterator":
         return _ok.okStrings_begin(self)
 
-    def end(self):
+    def end(self) -> "std::vector< std::string >::iterator":
         return _ok.okStrings_end(self)
 
-    def rbegin(self):
+    def rbegin(self) -> "std::vector< std::string >::reverse_iterator":
         return _ok.okStrings_rbegin(self)
 
-    def rend(self):
+    def rend(self) -> "std::vector< std::string >::reverse_iterator":
         return _ok.okStrings_rend(self)
 
-    def clear(self) -> None:
+    def clear(self) -> "void":
         return _ok.okStrings_clear(self)
 
-    def get_allocator(self):
+    def get_allocator(self) -> "std::vector< std::string >::allocator_type":
         return _ok.okStrings_get_allocator(self)
 
-    def pop_back(self) -> None:
+    def pop_back(self) -> "void":
         return _ok.okStrings_pop_back(self)
 
-    def erase(self, *args):
+    def erase(self, *args) -> "std::vector< std::string >::iterator":
         return _ok.okStrings_erase(self, *args)
 
     def __init__(self, *args):
         _ok.okStrings_swiginit(self, _ok.new_okStrings(*args))
 
-    def push_back(self, x) -> None:
+    def push_back(self, x: "std::vector< std::string >::value_type const &") -> "void":
         return _ok.okStrings_push_back(self, x)
 
-    def front(self):
+    def front(self) -> "std::vector< std::string >::value_type const &":
         return _ok.okStrings_front(self)
 
-    def back(self):
+    def back(self) -> "std::vector< std::string >::value_type const &":
         return _ok.okStrings_back(self)
 
-    def assign(self, n, x,) -> None:
+    def assign(
+        self,
+        n: "std::vector< std::string >::size_type",
+        x: "std::vector< std::string >::value_type const &",
+    ) -> "void":
         return _ok.okStrings_assign(self, n, x)
 
-    def resize(self, *args) -> None:
+    def resize(self, *args) -> "void":
         return _ok.okStrings_resize(self, *args)
 
-    def insert(self, *args) -> None:
+    def insert(self, *args) -> "void":
         return _ok.okStrings_insert(self, *args)
 
-    def reserve(self, n) -> None:
+    def reserve(self, n: "std::vector< std::string >::size_type") -> "void":
         return _ok.okStrings_reserve(self, n)
 
-    def capacity(self):
+    def capacity(self) -> "std::vector< std::string >::size_type":
         return _ok.okStrings_capacity(self)
 
     __swig_destroy__ = _ok.delete_okStrings
@@ -303,7 +313,7 @@ class okStrings(object):
 _ok.okStrings_swigregister(okStrings)
 
 
-__version__ = "5.2.1"
+__version__ = "5.2.2"
 
 okFPGACONFIGURATIONMETHOD_NVRAM = _ok.okFPGACONFIGURATIONMETHOD_NVRAM
 okFPGACONFIGURATIONMETHOD_JTAG = _ok.okFPGACONFIGURATIONMETHOD_JTAG
@@ -315,105 +325,115 @@ class okCScriptValues(object):
     )
     __repr__ = _swig_repr
 
-    def iterator(self):
+    def iterator(self) -> "swig::SwigPyIterator *":
         return _ok.okCScriptValues_iterator(self)
 
     def __iter__(self):
         return self.iterator()
 
-    def __nonzero__(self) -> bool:
+    def __nonzero__(self) -> "bool":
         return _ok.okCScriptValues___nonzero__(self)
 
-    def __bool__(self) -> bool:
+    def __bool__(self) -> "bool":
         return _ok.okCScriptValues___bool__(self)
 
-    def __len__(self):
+    def __len__(self) -> "std::vector< OpalKelly::ScriptValue >::size_type":
         return _ok.okCScriptValues___len__(self)
 
     def __getslice__(
-        self, i, j,
-    ):
+        self,
+        i: "std::vector< OpalKelly::ScriptValue >::difference_type",
+        j: "std::vector< OpalKelly::ScriptValue >::difference_type",
+    ) -> "std::vector< OpalKelly::ScriptValue,std::allocator< OpalKelly::ScriptValue > > *":
         return _ok.okCScriptValues___getslice__(self, i, j)
 
-    def __setslice__(self, *args) -> None:
+    def __setslice__(self, *args) -> "void":
         return _ok.okCScriptValues___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i: "std::vector< OpalKelly::ScriptValue >::difference_type",
+        j: "std::vector< OpalKelly::ScriptValue >::difference_type",
+    ) -> "void":
         return _ok.okCScriptValues___delslice__(self, i, j)
 
-    def __delitem__(self, *args) -> None:
+    def __delitem__(self, *args) -> "void":
         return _ok.okCScriptValues___delitem__(self, *args)
 
-    def __getitem__(self, *args):
+    def __getitem__(
+        self, *args
+    ) -> "std::vector< OpalKelly::ScriptValue >::value_type const &":
         return _ok.okCScriptValues___getitem__(self, *args)
 
-    def __setitem__(self, *args) -> None:
+    def __setitem__(self, *args) -> "void":
         return _ok.okCScriptValues___setitem__(self, *args)
 
-    def pop(self):
+    def pop(self) -> "std::vector< OpalKelly::ScriptValue >::value_type":
         return _ok.okCScriptValues_pop(self)
 
-    def append(self, x) -> None:
+    def append(self, x: "okCScriptValue") -> "void":
         return _ok.okCScriptValues_append(self, x)
 
-    def empty(self) -> bool:
+    def empty(self) -> "bool":
         return _ok.okCScriptValues_empty(self)
 
-    def size(self):
+    def size(self) -> "std::vector< OpalKelly::ScriptValue >::size_type":
         return _ok.okCScriptValues_size(self)
 
-    def swap(self, v) -> None:
+    def swap(self, v: "okCScriptValues") -> "void":
         return _ok.okCScriptValues_swap(self, v)
 
-    def begin(self):
+    def begin(self) -> "std::vector< OpalKelly::ScriptValue >::iterator":
         return _ok.okCScriptValues_begin(self)
 
-    def end(self):
+    def end(self) -> "std::vector< OpalKelly::ScriptValue >::iterator":
         return _ok.okCScriptValues_end(self)
 
-    def rbegin(self):
+    def rbegin(self) -> "std::vector< OpalKelly::ScriptValue >::reverse_iterator":
         return _ok.okCScriptValues_rbegin(self)
 
-    def rend(self):
+    def rend(self) -> "std::vector< OpalKelly::ScriptValue >::reverse_iterator":
         return _ok.okCScriptValues_rend(self)
 
-    def clear(self) -> None:
+    def clear(self) -> "void":
         return _ok.okCScriptValues_clear(self)
 
-    def get_allocator(self):
+    def get_allocator(self) -> "std::vector< OpalKelly::ScriptValue >::allocator_type":
         return _ok.okCScriptValues_get_allocator(self)
 
-    def pop_back(self) -> None:
+    def pop_back(self) -> "void":
         return _ok.okCScriptValues_pop_back(self)
 
-    def erase(self, *args):
+    def erase(self, *args) -> "std::vector< OpalKelly::ScriptValue >::iterator":
         return _ok.okCScriptValues_erase(self, *args)
 
     def __init__(self, *args):
         _ok.okCScriptValues_swiginit(self, _ok.new_okCScriptValues(*args))
 
-    def push_back(self, x) -> None:
+    def push_back(self, x: "okCScriptValue") -> "void":
         return _ok.okCScriptValues_push_back(self, x)
 
-    def front(self):
+    def front(self) -> "std::vector< OpalKelly::ScriptValue >::value_type const &":
         return _ok.okCScriptValues_front(self)
 
-    def back(self):
+    def back(self) -> "std::vector< OpalKelly::ScriptValue >::value_type const &":
         return _ok.okCScriptValues_back(self)
 
-    def assign(self, n, x) -> None:
+    def assign(
+        self, n: "std::vector< OpalKelly::ScriptValue >::size_type", x: "okCScriptValue"
+    ) -> "void":
         return _ok.okCScriptValues_assign(self, n, x)
 
-    def resize(self, *args) -> None:
+    def resize(self, *args) -> "void":
         return _ok.okCScriptValues_resize(self, *args)
 
-    def insert(self, *args) -> None:
+    def insert(self, *args) -> "void":
         return _ok.okCScriptValues_insert(self, *args)
 
-    def reserve(self, n) -> None:
+    def reserve(self, n: "std::vector< OpalKelly::ScriptValue >::size_type") -> "void":
         return _ok.okCScriptValues_reserve(self, n)
 
-    def capacity(self):
+    def capacity(self) -> "std::vector< OpalKelly::ScriptValue >::size_type":
         return _ok.okCScriptValues_capacity(self)
 
     __swig_destroy__ = _ok.delete_okCScriptValues
@@ -429,105 +449,115 @@ class okDeviceSensors(object):
     )
     __repr__ = _swig_repr
 
-    def iterator(self):
+    def iterator(self) -> "swig::SwigPyIterator *":
         return _ok.okDeviceSensors_iterator(self)
 
     def __iter__(self):
         return self.iterator()
 
-    def __nonzero__(self) -> bool:
+    def __nonzero__(self) -> "bool":
         return _ok.okDeviceSensors___nonzero__(self)
 
-    def __bool__(self) -> bool:
+    def __bool__(self) -> "bool":
         return _ok.okDeviceSensors___bool__(self)
 
-    def __len__(self):
+    def __len__(self) -> "std::vector< okTDeviceSensor >::size_type":
         return _ok.okDeviceSensors___len__(self)
 
     def __getslice__(
-        self, i, j,
-    ):
+        self,
+        i: "std::vector< okTDeviceSensor >::difference_type",
+        j: "std::vector< okTDeviceSensor >::difference_type",
+    ) -> "std::vector< okTDeviceSensor,std::allocator< okTDeviceSensor > > *":
         return _ok.okDeviceSensors___getslice__(self, i, j)
 
-    def __setslice__(self, *args) -> None:
+    def __setslice__(self, *args) -> "void":
         return _ok.okDeviceSensors___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i: "std::vector< okTDeviceSensor >::difference_type",
+        j: "std::vector< okTDeviceSensor >::difference_type",
+    ) -> "void":
         return _ok.okDeviceSensors___delslice__(self, i, j)
 
-    def __delitem__(self, *args) -> None:
+    def __delitem__(self, *args) -> "void":
         return _ok.okDeviceSensors___delitem__(self, *args)
 
-    def __getitem__(self, *args):
+    def __getitem__(
+        self, *args
+    ) -> "std::vector< okTDeviceSensor >::value_type const &":
         return _ok.okDeviceSensors___getitem__(self, *args)
 
-    def __setitem__(self, *args) -> None:
+    def __setitem__(self, *args) -> "void":
         return _ok.okDeviceSensors___setitem__(self, *args)
 
-    def pop(self):
+    def pop(self) -> "std::vector< okTDeviceSensor >::value_type":
         return _ok.okDeviceSensors_pop(self)
 
-    def append(self, x) -> None:
+    def append(self, x: "okTDeviceSensor") -> "void":
         return _ok.okDeviceSensors_append(self, x)
 
-    def empty(self) -> bool:
+    def empty(self) -> "bool":
         return _ok.okDeviceSensors_empty(self)
 
-    def size(self):
+    def size(self) -> "std::vector< okTDeviceSensor >::size_type":
         return _ok.okDeviceSensors_size(self)
 
-    def swap(self, v) -> None:
+    def swap(self, v: "okDeviceSensors") -> "void":
         return _ok.okDeviceSensors_swap(self, v)
 
-    def begin(self):
+    def begin(self) -> "std::vector< okTDeviceSensor >::iterator":
         return _ok.okDeviceSensors_begin(self)
 
-    def end(self):
+    def end(self) -> "std::vector< okTDeviceSensor >::iterator":
         return _ok.okDeviceSensors_end(self)
 
-    def rbegin(self):
+    def rbegin(self) -> "std::vector< okTDeviceSensor >::reverse_iterator":
         return _ok.okDeviceSensors_rbegin(self)
 
-    def rend(self):
+    def rend(self) -> "std::vector< okTDeviceSensor >::reverse_iterator":
         return _ok.okDeviceSensors_rend(self)
 
-    def clear(self) -> None:
+    def clear(self) -> "void":
         return _ok.okDeviceSensors_clear(self)
 
-    def get_allocator(self):
+    def get_allocator(self) -> "std::vector< okTDeviceSensor >::allocator_type":
         return _ok.okDeviceSensors_get_allocator(self)
 
-    def pop_back(self) -> None:
+    def pop_back(self) -> "void":
         return _ok.okDeviceSensors_pop_back(self)
 
-    def erase(self, *args):
+    def erase(self, *args) -> "std::vector< okTDeviceSensor >::iterator":
         return _ok.okDeviceSensors_erase(self, *args)
 
     def __init__(self, *args):
         _ok.okDeviceSensors_swiginit(self, _ok.new_okDeviceSensors(*args))
 
-    def push_back(self, x) -> None:
+    def push_back(self, x: "okTDeviceSensor") -> "void":
         return _ok.okDeviceSensors_push_back(self, x)
 
-    def front(self):
+    def front(self) -> "std::vector< okTDeviceSensor >::value_type const &":
         return _ok.okDeviceSensors_front(self)
 
-    def back(self):
+    def back(self) -> "std::vector< okTDeviceSensor >::value_type const &":
         return _ok.okDeviceSensors_back(self)
 
-    def assign(self, n, x) -> None:
+    def assign(
+        self, n: "std::vector< okTDeviceSensor >::size_type", x: "okTDeviceSensor"
+    ) -> "void":
         return _ok.okDeviceSensors_assign(self, n, x)
 
-    def resize(self, *args) -> None:
+    def resize(self, *args) -> "void":
         return _ok.okDeviceSensors_resize(self, *args)
 
-    def insert(self, *args) -> None:
+    def insert(self, *args) -> "void":
         return _ok.okDeviceSensors_insert(self, *args)
 
-    def reserve(self, n) -> None:
+    def reserve(self, n: "std::vector< okTDeviceSensor >::size_type") -> "void":
         return _ok.okDeviceSensors_reserve(self, n)
 
-    def capacity(self):
+    def capacity(self) -> "std::vector< okTDeviceSensor >::size_type":
         return _ok.okDeviceSensors_capacity(self)
 
     __swig_destroy__ = _ok.delete_okDeviceSensors
@@ -543,105 +573,115 @@ class okTRegisterEntries(object):
     )
     __repr__ = _swig_repr
 
-    def iterator(self):
+    def iterator(self) -> "swig::SwigPyIterator *":
         return _ok.okTRegisterEntries_iterator(self)
 
     def __iter__(self):
         return self.iterator()
 
-    def __nonzero__(self) -> bool:
+    def __nonzero__(self) -> "bool":
         return _ok.okTRegisterEntries___nonzero__(self)
 
-    def __bool__(self) -> bool:
+    def __bool__(self) -> "bool":
         return _ok.okTRegisterEntries___bool__(self)
 
-    def __len__(self):
+    def __len__(self) -> "std::vector< okTRegisterEntry >::size_type":
         return _ok.okTRegisterEntries___len__(self)
 
     def __getslice__(
-        self, i, j,
-    ):
+        self,
+        i: "std::vector< okTRegisterEntry >::difference_type",
+        j: "std::vector< okTRegisterEntry >::difference_type",
+    ) -> "std::vector< okTRegisterEntry,std::allocator< okTRegisterEntry > > *":
         return _ok.okTRegisterEntries___getslice__(self, i, j)
 
-    def __setslice__(self, *args) -> None:
+    def __setslice__(self, *args) -> "void":
         return _ok.okTRegisterEntries___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i: "std::vector< okTRegisterEntry >::difference_type",
+        j: "std::vector< okTRegisterEntry >::difference_type",
+    ) -> "void":
         return _ok.okTRegisterEntries___delslice__(self, i, j)
 
-    def __delitem__(self, *args) -> None:
+    def __delitem__(self, *args) -> "void":
         return _ok.okTRegisterEntries___delitem__(self, *args)
 
-    def __getitem__(self, *args):
+    def __getitem__(
+        self, *args
+    ) -> "std::vector< okTRegisterEntry >::value_type const &":
         return _ok.okTRegisterEntries___getitem__(self, *args)
 
-    def __setitem__(self, *args) -> None:
+    def __setitem__(self, *args) -> "void":
         return _ok.okTRegisterEntries___setitem__(self, *args)
 
-    def pop(self):
+    def pop(self) -> "std::vector< okTRegisterEntry >::value_type":
         return _ok.okTRegisterEntries_pop(self)
 
-    def append(self, x) -> None:
+    def append(self, x: "okTRegisterEntry") -> "void":
         return _ok.okTRegisterEntries_append(self, x)
 
-    def empty(self) -> bool:
+    def empty(self) -> "bool":
         return _ok.okTRegisterEntries_empty(self)
 
-    def size(self):
+    def size(self) -> "std::vector< okTRegisterEntry >::size_type":
         return _ok.okTRegisterEntries_size(self)
 
-    def swap(self, v) -> None:
+    def swap(self, v: "okTRegisterEntries") -> "void":
         return _ok.okTRegisterEntries_swap(self, v)
 
-    def begin(self):
+    def begin(self) -> "std::vector< okTRegisterEntry >::iterator":
         return _ok.okTRegisterEntries_begin(self)
 
-    def end(self):
+    def end(self) -> "std::vector< okTRegisterEntry >::iterator":
         return _ok.okTRegisterEntries_end(self)
 
-    def rbegin(self):
+    def rbegin(self) -> "std::vector< okTRegisterEntry >::reverse_iterator":
         return _ok.okTRegisterEntries_rbegin(self)
 
-    def rend(self):
+    def rend(self) -> "std::vector< okTRegisterEntry >::reverse_iterator":
         return _ok.okTRegisterEntries_rend(self)
 
-    def clear(self) -> None:
+    def clear(self) -> "void":
         return _ok.okTRegisterEntries_clear(self)
 
-    def get_allocator(self):
+    def get_allocator(self) -> "std::vector< okTRegisterEntry >::allocator_type":
         return _ok.okTRegisterEntries_get_allocator(self)
 
-    def pop_back(self) -> None:
+    def pop_back(self) -> "void":
         return _ok.okTRegisterEntries_pop_back(self)
 
-    def erase(self, *args):
+    def erase(self, *args) -> "std::vector< okTRegisterEntry >::iterator":
         return _ok.okTRegisterEntries_erase(self, *args)
 
     def __init__(self, *args):
         _ok.okTRegisterEntries_swiginit(self, _ok.new_okTRegisterEntries(*args))
 
-    def push_back(self, x) -> None:
+    def push_back(self, x: "okTRegisterEntry") -> "void":
         return _ok.okTRegisterEntries_push_back(self, x)
 
-    def front(self):
+    def front(self) -> "std::vector< okTRegisterEntry >::value_type const &":
         return _ok.okTRegisterEntries_front(self)
 
-    def back(self):
+    def back(self) -> "std::vector< okTRegisterEntry >::value_type const &":
         return _ok.okTRegisterEntries_back(self)
 
-    def assign(self, n, x) -> None:
+    def assign(
+        self, n: "std::vector< okTRegisterEntry >::size_type", x: "okTRegisterEntry"
+    ) -> "void":
         return _ok.okTRegisterEntries_assign(self, n, x)
 
-    def resize(self, *args) -> None:
+    def resize(self, *args) -> "void":
         return _ok.okTRegisterEntries_resize(self, *args)
 
-    def insert(self, *args) -> None:
+    def insert(self, *args) -> "void":
         return _ok.okTRegisterEntries_insert(self, *args)
 
-    def reserve(self, n) -> None:
+    def reserve(self, n: "std::vector< okTRegisterEntry >::size_type") -> "void":
         return _ok.okTRegisterEntries_reserve(self, n)
 
-    def capacity(self):
+    def capacity(self) -> "std::vector< okTRegisterEntry >::size_type":
         return _ok.okTRegisterEntries_capacity(self)
 
     __swig_destroy__ = _ok.delete_okTRegisterEntries
@@ -1113,58 +1153,66 @@ class okCPLL22150(object):
 
     __swig_destroy__ = _ok.delete_okCPLL22150
 
-    def SetCrystalLoad(self, capload: float) -> None:
+    def SetCrystalLoad(self, capload: "double") -> "void":
         return _ok.okCPLL22150_SetCrystalLoad(self, capload)
 
-    def SetReference(self, freq: float, extosc) -> None:
+    def SetReference(self, freq: "double", extosc: "bool") -> "void":
         return _ok.okCPLL22150_SetReference(self, freq, extosc)
 
-    def GetReference(self) -> float:
+    def GetReference(self) -> "double":
         return _ok.okCPLL22150_GetReference(self)
 
-    def SetVCOParameters(self, p, q) -> bool:
+    def SetVCOParameters(self, p: "int", q: "int") -> "bool":
         return _ok.okCPLL22150_SetVCOParameters(self, p, q)
 
-    def GetVCOP(self) -> int:
+    def GetVCOP(self) -> "int":
         return _ok.okCPLL22150_GetVCOP(self)
 
-    def GetVCOQ(self) -> int:
+    def GetVCOQ(self) -> "int":
         return _ok.okCPLL22150_GetVCOQ(self)
 
-    def GetVCOFrequency(self) -> float:
+    def GetVCOFrequency(self) -> "double":
         return _ok.okCPLL22150_GetVCOFrequency(self)
 
-    def SetDiv1(self, divsrc, n) -> None:
+    def SetDiv1(
+        self, divsrc: "OpalKellyLegacy::okCPLL22150::DividerSource", n: "int"
+    ) -> "void":
         return _ok.okCPLL22150_SetDiv1(self, divsrc, n)
 
-    def SetDiv2(self, divsrc, n) -> None:
+    def SetDiv2(
+        self, divsrc: "OpalKellyLegacy::okCPLL22150::DividerSource", n: "int"
+    ) -> "void":
         return _ok.okCPLL22150_SetDiv2(self, divsrc, n)
 
-    def GetDiv1Source(self):
+    def GetDiv1Source(self) -> "OpalKellyLegacy::okCPLL22150::DividerSource":
         return _ok.okCPLL22150_GetDiv1Source(self)
 
-    def GetDiv2Source(self):
+    def GetDiv2Source(self) -> "OpalKellyLegacy::okCPLL22150::DividerSource":
         return _ok.okCPLL22150_GetDiv2Source(self)
 
-    def GetDiv1Divider(self) -> int:
+    def GetDiv1Divider(self) -> "int":
         return _ok.okCPLL22150_GetDiv1Divider(self)
 
-    def GetDiv2Divider(self) -> int:
+    def GetDiv2Divider(self) -> "int":
         return _ok.okCPLL22150_GetDiv2Divider(self)
 
-    def SetOutputSource(self, output, clksrc) -> None:
+    def SetOutputSource(
+        self, output: "int", clksrc: "OpalKellyLegacy::okCPLL22150::ClockSource"
+    ) -> "void":
         return _ok.okCPLL22150_SetOutputSource(self, output, clksrc)
 
-    def SetOutputEnable(self, output, enable) -> None:
+    def SetOutputEnable(self, output: "int", enable: "bool") -> "void":
         return _ok.okCPLL22150_SetOutputEnable(self, output, enable)
 
-    def GetOutputSource(self, output):
+    def GetOutputSource(
+        self, output: "int"
+    ) -> "OpalKellyLegacy::okCPLL22150::ClockSource":
         return _ok.okCPLL22150_GetOutputSource(self, output)
 
-    def GetOutputFrequency(self, output) -> float:
+    def GetOutputFrequency(self, output: "int") -> "double":
         return _ok.okCPLL22150_GetOutputFrequency(self, output)
 
-    def IsOutputEnabled(self, output) -> bool:
+    def IsOutputEnabled(self, output: "int") -> "bool":
         return _ok.okCPLL22150_IsOutputEnabled(self, output)
 
 
@@ -1190,52 +1238,56 @@ class okCPLL22393(object):
 
     __swig_destroy__ = _ok.delete_okCPLL22393
 
-    def SetCrystalLoad(self, capload: float) -> bool:
+    def SetCrystalLoad(self, capload: "double") -> "bool":
         return _ok.okCPLL22393_SetCrystalLoad(self, capload)
 
-    def SetReference(self, freq: float) -> None:
+    def SetReference(self, freq: "double") -> "void":
         return _ok.okCPLL22393_SetReference(self, freq)
 
-    def GetReference(self) -> float:
+    def GetReference(self) -> "double":
         return _ok.okCPLL22393_GetReference(self)
 
-    def SetPLLParameters(self, n, p, q, enable=True) -> bool:
+    def SetPLLParameters(
+        self, n: "int", p: "int", q: "int", enable: "bool" = True
+    ) -> "bool":
         return _ok.okCPLL22393_SetPLLParameters(self, n, p, q, enable)
 
-    def SetPLLLF(self, n, lf) -> bool:
+    def SetPLLLF(self, n: "int", lf: "int") -> "bool":
         return _ok.okCPLL22393_SetPLLLF(self, n, lf)
 
-    def SetOutputDivider(self, n, div) -> bool:
+    def SetOutputDivider(self, n: "int", div: "int") -> "bool":
         return _ok.okCPLL22393_SetOutputDivider(self, n, div)
 
-    def SetOutputSource(self, n, clksrc) -> bool:
+    def SetOutputSource(
+        self, n: "int", clksrc: "OpalKellyLegacy::okCPLL22393::ClockSource"
+    ) -> "bool":
         return _ok.okCPLL22393_SetOutputSource(self, n, clksrc)
 
-    def SetOutputEnable(self, n, enable) -> None:
+    def SetOutputEnable(self, n: "int", enable: "bool") -> "void":
         return _ok.okCPLL22393_SetOutputEnable(self, n, enable)
 
-    def GetPLLP(self, n) -> int:
+    def GetPLLP(self, n: "int") -> "int":
         return _ok.okCPLL22393_GetPLLP(self, n)
 
-    def GetPLLQ(self, n) -> int:
+    def GetPLLQ(self, n: "int") -> "int":
         return _ok.okCPLL22393_GetPLLQ(self, n)
 
-    def GetPLLFrequency(self, n) -> float:
+    def GetPLLFrequency(self, n: "int") -> "double":
         return _ok.okCPLL22393_GetPLLFrequency(self, n)
 
-    def GetOutputDivider(self, n) -> int:
+    def GetOutputDivider(self, n: "int") -> "int":
         return _ok.okCPLL22393_GetOutputDivider(self, n)
 
-    def GetOutputSource(self, n):
+    def GetOutputSource(self, n: "int") -> "OpalKellyLegacy::okCPLL22393::ClockSource":
         return _ok.okCPLL22393_GetOutputSource(self, n)
 
-    def GetOutputFrequency(self, n) -> float:
+    def GetOutputFrequency(self, n: "int") -> "double":
         return _ok.okCPLL22393_GetOutputFrequency(self, n)
 
-    def IsOutputEnabled(self, n) -> bool:
+    def IsOutputEnabled(self, n: "int") -> "bool":
         return _ok.okCPLL22393_IsOutputEnabled(self, n)
 
-    def IsPLLEnabled(self, n) -> bool:
+    def IsPLLEnabled(self, n: "int") -> "bool":
         return _ok.okCPLL22393_IsPLLEnabled(self, n)
 
 
@@ -1331,243 +1383,313 @@ class okCFrontPanel(object):
     __swig_destroy__ = _ok.delete_okCFrontPanel
 
     @staticmethod
-    def GetErrorString(errorCode) -> str:
+    def GetErrorString(errorCode: "int") -> "std::string":
         return _ok.okCFrontPanel_GetErrorString(errorCode)
 
-    def GetLastErrorMessage(self):
+    def GetLastErrorMessage(self) -> "char const *":
         return _ok.okCFrontPanel_GetLastErrorMessage(self)
 
     @staticmethod
-    def AddCustomDevice(matchInfo, devInfo=None):
+    def AddCustomDevice(
+        matchInfo: "okTDeviceMatchInfo", devInfo: "okTDeviceInfo" = None
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_AddCustomDevice(matchInfo, devInfo)
 
     @staticmethod
-    def RemoveCustomDevice(productID,):
+    def RemoveCustomDevice(
+        productID: "int",
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_RemoveCustomDevice(productID)
 
-    def GetHostInterfaceWidth(self) -> int:
+    def GetHostInterfaceWidth(self) -> "int":
         return _ok.okCFrontPanel_GetHostInterfaceWidth(self)
 
-    def GetBoardModel(self):
+    def GetBoardModel(self) -> "OpalKellyLegacy::okCFrontPanel::BoardModel":
         return _ok.okCFrontPanel_GetBoardModel(self)
 
     @staticmethod
-    def FindUSBDeviceModel(usbVID, usbPID):
+    def FindUSBDeviceModel(
+        usbVID: "unsigned int", usbPID: "unsigned int"
+    ) -> "OpalKellyLegacy::okCFrontPanel::BoardModel":
         return _ok.okCFrontPanel_FindUSBDeviceModel(usbVID, usbPID)
 
     @staticmethod
-    def GetBoardModelString(m,) -> str:
+    def GetBoardModelString(
+        m: "OpalKellyLegacy::okCFrontPanel::BoardModel",
+    ) -> "std::string":
         return _ok.okCFrontPanel_GetBoardModelString(m)
 
-    def GetDeviceCount(self) -> int:
+    def GetDeviceCount(self) -> "int":
         return _ok.okCFrontPanel_GetDeviceCount(self)
 
     def GetFPGAResetProfile(
-        self, method, profile  # type: ignore
-    ):
+        self, method: "okEFPGAConfigurationMethod", profile: "okTFPGAResetProfile"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetFPGAResetProfile(self, method, profile)
 
-    def SetFPGAResetProfile(self, method, profile):
+    def SetFPGAResetProfile(
+        self, method: "okEFPGAConfigurationMethod", profile: "okTFPGAResetProfile"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_SetFPGAResetProfile(self, method, profile)
 
-    def FlashEraseSector(self, address: int):
+    def FlashEraseSector(
+        self, address: "UINT32"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_FlashEraseSector(self, address)
 
-    def ReadRegisters(self, regs):
+    def ReadRegisters(
+        self, regs: "okTRegisterEntries"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_ReadRegisters(self, regs)
 
-    def WriteRegister(self, addr: int, data: int):
+    def WriteRegister(
+        self, addr: "UINT32", data: "UINT32"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_WriteRegister(self, addr, data)
 
-    def WriteRegisters(self, regs):
+    def WriteRegisters(
+        self, regs: "okTRegisterEntries"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_WriteRegisters(self, regs)
 
-    def GetDeviceListModel(self, num):
+    def GetDeviceListModel(
+        self, num: "int"
+    ) -> "OpalKellyLegacy::okCFrontPanel::BoardModel":
         return _ok.okCFrontPanel_GetDeviceListModel(self, num)
 
-    def GetDeviceListSerial(self, num) -> str:
+    def GetDeviceListSerial(self, num: "int") -> "std::string":
         return _ok.okCFrontPanel_GetDeviceListSerial(self, num)
 
-    def EnableAsynchronousTransfers(self, enable) -> None:
+    def EnableAsynchronousTransfers(self, enable: "bool") -> "void":
         return _ok.okCFrontPanel_EnableAsynchronousTransfers(self, enable)
 
-    def OpenBySerial(self, *args):
+    def OpenBySerial(self, *args) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_OpenBySerial(self, *args)
 
-    def IsOpen(self) -> bool:
+    def IsOpen(self) -> "bool":
         return _ok.okCFrontPanel_IsOpen(self)
 
-    def IsRemote(self) -> bool:
+    def IsRemote(self) -> "bool":
         return _ok.okCFrontPanel_IsRemote(self)
 
-    def GetDeviceInfo(self, info) -> int:
+    def GetDeviceInfo(
+        self, info: "okTDeviceInfo"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetDeviceInfo(self, info)
 
-    def GetDeviceMajorVersion(self) -> int:
+    def GetDeviceMajorVersion(self) -> "int":
         return _ok.okCFrontPanel_GetDeviceMajorVersion(self)
 
-    def GetDeviceMinorVersion(self) -> int:
+    def GetDeviceMinorVersion(self) -> "int":
         return _ok.okCFrontPanel_GetDeviceMinorVersion(self)
 
-    def GetSerialNumber(self) -> str:
+    def GetSerialNumber(self) -> "std::string":
         return _ok.okCFrontPanel_GetSerialNumber(self)
 
-    def GetDeviceSettings(self, settings):
+    def GetDeviceSettings(
+        self, settings: "okCDeviceSettings"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetDeviceSettings(self, settings)
 
-    def GetDeviceID(self) -> str:
+    def GetDeviceID(self) -> "std::string":
         return _ok.okCFrontPanel_GetDeviceID(self)
 
-    def SetDeviceID(self, str) -> int:
+    def SetDeviceID(self, str: "std::string const &") -> "void":
         return _ok.okCFrontPanel_SetDeviceID(self, str)
 
-    def SetBTPipePollingInterval(self, interval):
+    def SetBTPipePollingInterval(
+        self, interval: "int"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_SetBTPipePollingInterval(self, interval)
 
-    def SetTimeout(self, timeout) -> None:
+    def SetTimeout(self, timeout: "int") -> "void":
         return _ok.okCFrontPanel_SetTimeout(self, timeout)
 
-    def ResetFPGA(self):
+    def ResetFPGA(self) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_ResetFPGA(self)
 
-    def Close(self) -> None:
+    def Close(self) -> "void":
         return _ok.okCFrontPanel_Close(self)
 
-    def ConfigureFPGA(self, strFilename) -> int:
+    def ConfigureFPGA(
+        self, strFilename: "std::string const &"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_ConfigureFPGA(self, strFilename)
 
-    def GetPLL22150Configuration(self, pll):
+    def GetPLL22150Configuration(
+        self, pll: "okCPLL22150"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetPLL22150Configuration(self, pll)
 
-    def SetPLL22150Configuration(self, pll):
+    def SetPLL22150Configuration(
+        self, pll: "okCPLL22150"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_SetPLL22150Configuration(self, pll)
 
-    def GetEepromPLL22150Configuration(self, pll):
+    def GetEepromPLL22150Configuration(
+        self, pll: "okCPLL22150"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetEepromPLL22150Configuration(self, pll)
 
-    def SetEepromPLL22150Configuration(self, pll):
+    def SetEepromPLL22150Configuration(
+        self, pll: "okCPLL22150"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_SetEepromPLL22150Configuration(self, pll)
 
-    def GetPLL22393Configuration(self, pll):
+    def GetPLL22393Configuration(
+        self, pll: "okCPLL22393"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetPLL22393Configuration(self, pll)
 
-    def SetPLL22393Configuration(self, pll):
+    def SetPLL22393Configuration(
+        self, pll: "okCPLL22393"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_SetPLL22393Configuration(self, pll)
 
-    def GetEepromPLL22393Configuration(self, pll):
+    def GetEepromPLL22393Configuration(
+        self, pll: "okCPLL22393"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetEepromPLL22393Configuration(self, pll)
 
-    def SetEepromPLL22393Configuration(self, pll):
+    def SetEepromPLL22393Configuration(
+        self, pll: "okCPLL22393"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_SetEepromPLL22393Configuration(self, pll)
 
-    def LoadDefaultPLLConfiguration(self,):
+    def LoadDefaultPLLConfiguration(
+        self,
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_LoadDefaultPLLConfiguration(self)
 
-    def IsHighSpeed(self) -> bool:
+    def IsHighSpeed(self) -> "bool":
         return _ok.okCFrontPanel_IsHighSpeed(self)
 
-    def IsFrontPanelEnabled(self) -> bool:
+    def IsFrontPanelEnabled(self) -> "bool":
         return _ok.okCFrontPanel_IsFrontPanelEnabled(self)
 
-    def IsFrontPanel3Supported(self) -> bool:
+    def IsFrontPanel3Supported(self) -> "bool":
         return _ok.okCFrontPanel_IsFrontPanel3Supported(self)
 
-    def UpdateWireIns(self) -> int:
+    def UpdateWireIns(self) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_UpdateWireIns(self)
 
-    def GetWireInValue(self, epAddr):
+    def GetWireInValue(
+        self, epAddr: "int"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_GetWireInValue(self, epAddr)
 
-    def SetWireInValue(self, *args) -> int:
+    def SetWireInValue(self, *args) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_SetWireInValue(self, *args)
 
-    def UpdateWireOuts(self) -> int:
+    def UpdateWireOuts(self) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_UpdateWireOuts(self)
 
-    def GetWireOutValue(self, epAddr) -> int:
+    def GetWireOutValue(self, epAddr: "int") -> "unsigned long":
         return _ok.okCFrontPanel_GetWireOutValue(self, epAddr)
 
-    def ActivateTriggerIn(self, epAddr, bit) -> int:
+    def ActivateTriggerIn(
+        self, epAddr: "int", bit: "int"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_ActivateTriggerIn(self, epAddr, bit)
 
-    def UpdateTriggerOuts(self):
+    def UpdateTriggerOuts(self) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_UpdateTriggerOuts(self)
 
-    def IsTriggered(self, epAddr, mask: int) -> bool:
+    def IsTriggered(self, epAddr: "int", mask: "UINT32") -> "bool":
         return _ok.okCFrontPanel_IsTriggered(self, epAddr, mask)
 
-    def GetTriggerOutVector(self, epAddr) -> int:
+    def GetTriggerOutVector(self, epAddr: "int") -> "UINT32":
         return _ok.okCFrontPanel_GetTriggerOutVector(self, epAddr)
 
-    def GetLastTransferLength(self) -> int:
+    def GetLastTransferLength(self) -> "long":
         return _ok.okCFrontPanel_GetLastTransferLength(self)
 
     @staticmethod
-    def GetAPIVersionMajor() -> int:
+    def GetAPIVersionMajor() -> "int":
         return _ok.okCFrontPanel_GetAPIVersionMajor()
 
     @staticmethod
-    def GetAPIVersionMinor() -> int:
+    def GetAPIVersionMinor() -> "int":
         return _ok.okCFrontPanel_GetAPIVersionMinor()
 
     @staticmethod
-    def GetAPIVersionMicro() -> int:
+    def GetAPIVersionMicro() -> "int":
         return _ok.okCFrontPanel_GetAPIVersionMicro()
 
     @staticmethod
-    def GetAPIVersionString():
+    def GetAPIVersionString() -> "char const *":
         return _ok.okCFrontPanel_GetAPIVersionString()
 
     @staticmethod
-    def CheckAPIVersion(major, minor, micro) -> bool:
+    def CheckAPIVersion(major: "int", minor: "int", micro: "int") -> "bool":
         return _ok.okCFrontPanel_CheckAPIVersion(major, minor, micro)
 
-    def ReadRegister(self, addr: int) -> int:
+    def ReadRegister(self, addr: "UINT32") -> "UINT32":
         return _ok.okCFrontPanel_ReadRegister(self, addr)
 
-    def FlashWrite(self, address: int, data):
+    def FlashWrite(
+        self, address: "UINT32", data: "char *"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_FlashWrite(self, address, data)
 
-    def FlashRead(self, address: int, data):
+    def FlashRead(
+        self, address: "UINT32", data: "char *"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_FlashRead(self, address, data)
 
-    def WriteToPipeIn(self, epAddr, data) -> int:
+    def WriteToPipeIn(self, epAddr: "int", data: "char *") -> "long":
         return _ok.okCFrontPanel_WriteToPipeIn(self, epAddr, data)
 
-    def ReadFromPipeOut(self, epAddr, data) -> int:
+    def ReadFromPipeOut(self, epAddr: "int", data: "char *") -> "long":
         return _ok.okCFrontPanel_ReadFromPipeOut(self, epAddr, data)
 
-    def WriteToBlockPipeIn(self, epAddr, blockSize, data) -> int:
+    def WriteToBlockPipeIn(
+        self, epAddr: "int", blockSize: "int", data: "char *"
+    ) -> "long":
         return _ok.okCFrontPanel_WriteToBlockPipeIn(self, epAddr, blockSize, data)
 
-    def ReadFromBlockPipeOut(self, epAddr, blockSize, data) -> int:
+    def ReadFromBlockPipeOut(
+        self, epAddr: "int", blockSize: "int", data: "char *"
+    ) -> "long":
         return _ok.okCFrontPanel_ReadFromBlockPipeOut(self, epAddr, blockSize, data)
 
-    def WriteToPipeInThr(self, epAddr, data) -> int:
+    def WriteToPipeInThr(self, epAddr: "int", data: "char *") -> "long":
         return _ok.okCFrontPanel_WriteToPipeInThr(self, epAddr, data)
 
-    def ReadFromPipeOutThr(self, epAddr, data) -> int:
+    def ReadFromPipeOutThr(self, epAddr: "int", data: "char *") -> "long":
         return _ok.okCFrontPanel_ReadFromPipeOutThr(self, epAddr, data)
 
-    def WriteToBlockPipeInThr(self, epAddr, blockSize, data) -> int:
+    def WriteToBlockPipeInThr(
+        self, epAddr: "int", blockSize: "int", data: "char *"
+    ) -> "long":
         return _ok.okCFrontPanel_WriteToBlockPipeInThr(self, epAddr, blockSize, data)
 
-    def ReadFromBlockPipeOutThr(self, epAddr, blockSize, data) -> int:
+    def ReadFromBlockPipeOutThr(
+        self, epAddr: "int", blockSize: "int", data: "char *"
+    ) -> "long":
         return _ok.okCFrontPanel_ReadFromBlockPipeOutThr(self, epAddr, blockSize, data)
 
-    def ReadI2C(self, addr, data):
+    def ReadI2C(
+        self, addr: "int", data: "char *"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_ReadI2C(self, addr, data)
 
-    def WriteI2C(self, addr, data):
+    def WriteI2C(
+        self, addr: "int", data: "char *"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_WriteI2C(self, addr, data)
 
-    def ConfigureFPGAFromMemory(self, data):
+    def ConfigureFPGAFromMemory(
+        self, data: "unsigned char *"
+    ) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
         return _ok.okCFrontPanel_ConfigureFPGAFromMemory(self, data)
 
-    def GetDeviceSensors(self,):
+    def GetDeviceSensors(
+        self,
+    ) -> "std::vector< okTDeviceSensor,std::allocator< okTDeviceSensor > >":
         return _ok.okCFrontPanel_GetDeviceSensors(self)
 
-    def CreateLuaScriptEngine(self):
+    def CreateLuaScriptEngine(self) -> "okstd::auto_ptr< OpalKelly::ScriptEngine >":
         return _ok.okCFrontPanel_CreateLuaScriptEngine(self)
 
 
@@ -1575,43 +1697,51 @@ class okCFrontPanel(object):
 _ok.okCFrontPanel_swigregister(okCFrontPanel)
 
 
-def okCFrontPanel_GetErrorString(errorCode) -> str:
+def okCFrontPanel_GetErrorString(errorCode: "int") -> "std::string":
     return _ok.okCFrontPanel_GetErrorString(errorCode)
 
 
-def okCFrontPanel_AddCustomDevice(matchInfo, devInfo=None):
+def okCFrontPanel_AddCustomDevice(
+    matchInfo: "okTDeviceMatchInfo", devInfo: "okTDeviceInfo" = None
+) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
     return _ok.okCFrontPanel_AddCustomDevice(matchInfo, devInfo)
 
 
-def okCFrontPanel_RemoveCustomDevice(productID,):
+def okCFrontPanel_RemoveCustomDevice(
+    productID: "int",
+) -> "OpalKellyLegacy::okCFrontPanel::ErrorCode":
     return _ok.okCFrontPanel_RemoveCustomDevice(productID)
 
 
-def okCFrontPanel_FindUSBDeviceModel(usbVID, usbPID):
+def okCFrontPanel_FindUSBDeviceModel(
+    usbVID: "unsigned int", usbPID: "unsigned int"
+) -> "OpalKellyLegacy::okCFrontPanel::BoardModel":
     return _ok.okCFrontPanel_FindUSBDeviceModel(usbVID, usbPID)
 
 
-def okCFrontPanel_GetBoardModelString(m,) -> str:
+def okCFrontPanel_GetBoardModelString(
+    m: "OpalKellyLegacy::okCFrontPanel::BoardModel",
+) -> "std::string":
     return _ok.okCFrontPanel_GetBoardModelString(m)
 
 
-def okCFrontPanel_GetAPIVersionMajor() -> int:
+def okCFrontPanel_GetAPIVersionMajor() -> "int":
     return _ok.okCFrontPanel_GetAPIVersionMajor()
 
 
-def okCFrontPanel_GetAPIVersionMinor() -> int:
+def okCFrontPanel_GetAPIVersionMinor() -> "int":
     return _ok.okCFrontPanel_GetAPIVersionMinor()
 
 
-def okCFrontPanel_GetAPIVersionMicro() -> int:
+def okCFrontPanel_GetAPIVersionMicro() -> "int":
     return _ok.okCFrontPanel_GetAPIVersionMicro()
 
 
-def okCFrontPanel_GetAPIVersionString():
+def okCFrontPanel_GetAPIVersionString() -> "char const *":
     return _ok.okCFrontPanel_GetAPIVersionString()
 
 
-def okCFrontPanel_CheckAPIVersion(major, minor, micro) -> bool:
+def okCFrontPanel_CheckAPIVersion(major: "int", minor: "int", micro: "int") -> "bool":
     return _ok.okCFrontPanel_CheckAPIVersion(major, minor, micro)
 
 
@@ -1626,25 +1756,27 @@ class okCDeviceSettings(object):
 
     __swig_destroy__ = _ok.delete_okCDeviceSettings
 
-    def GetString(self, key) -> str:
+    def GetString(self, key: "std::string const &") -> "std::string":
         return _ok.okCDeviceSettings_GetString(self, key)
 
-    def GetInt(self, key) -> int:
+    def GetInt(self, key: "std::string const &") -> "UINT32":
         return _ok.okCDeviceSettings_GetInt(self, key)
 
-    def SetString(self, key, value) -> None:
+    def SetString(
+        self, key: "std::string const &", value: "std::string const &"
+    ) -> "void":
         return _ok.okCDeviceSettings_SetString(self, key, value)
 
-    def SetInt(self, key, value: int) -> None:
+    def SetInt(self, key: "std::string const &", value: "UINT32") -> "void":
         return _ok.okCDeviceSettings_SetInt(self, key, value)
 
-    def List(self):
+    def List(self) -> "std::vector< std::string,std::allocator< std::string > >":
         return _ok.okCDeviceSettings_List(self)
 
-    def Delete(self, key) -> None:
+    def Delete(self, key: "std::string const &") -> "void":
         return _ok.okCDeviceSettings_Delete(self, key)
 
-    def Save(self) -> None:
+    def Save(self) -> "void":
         return _ok.okCDeviceSettings_Save(self)
 
 
@@ -1652,23 +1784,23 @@ class okCDeviceSettings(object):
 _ok.okCDeviceSettings_swigregister(okCDeviceSettings)
 
 
-def GetAPIVersionMajor() -> int:
+def GetAPIVersionMajor() -> "int":
     return _ok.GetAPIVersionMajor()
 
 
-def GetAPIVersionMinor() -> int:
+def GetAPIVersionMinor() -> "int":
     return _ok.GetAPIVersionMinor()
 
 
-def GetAPIVersionMicro() -> int:
+def GetAPIVersionMicro() -> "int":
     return _ok.GetAPIVersionMicro()
 
 
-def GetAPIVersionString():
+def GetAPIVersionString() -> "char const *":
     return _ok.GetAPIVersionString()
 
 
-def CheckAPIVersion(major, minor, micro) -> bool:
+def CheckAPIVersion(major: "int", minor: "int", micro: "int") -> "bool":
     return _ok.CheckAPIVersion(major, minor, micro)
 
 
@@ -1681,18 +1813,18 @@ class okBuffer(object):
     def __init__(self, *args):
         _ok.okBuffer_swiginit(self, _ok.new_okBuffer(*args))
 
-    def IsEmpty(self) -> bool:
+    def IsEmpty(self) -> "bool":
         return _ok.okBuffer_IsEmpty(self)
 
-    def GetSize(self) -> int:
+    def GetSize(self) -> "size_t":
         return _ok.okBuffer_GetSize(self)
 
     __swig_destroy__ = _ok.delete_okBuffer
 
-    def __getitem__(self, n: int):
+    def __getitem__(self, n: "size_t") -> "unsigned char":
         return _ok.okBuffer___getitem__(self, n)
 
-    def __setitem__(self, n: int, val) -> None:
+    def __setitem__(self, n: "size_t", val: "unsigned char") -> "void":
         return _ok.okBuffer___setitem__(self, n, val)
 
 
@@ -1709,28 +1841,28 @@ class okCScriptValue(object):
     def __init__(self, *args):
         _ok.okCScriptValue_swiginit(self, _ok.new_okCScriptValue(*args))
 
-    def IsNumber(self) -> bool:
+    def IsNumber(self) -> "bool":
         return _ok.okCScriptValue_IsNumber(self)
 
-    def GetNumber(self) -> int:
+    def GetNumber(self) -> "int":
         return _ok.okCScriptValue_GetNumber(self)
 
-    def IsBool(self) -> bool:
+    def IsBool(self) -> "bool":
         return _ok.okCScriptValue_IsBool(self)
 
-    def GetBool(self) -> bool:
+    def GetBool(self) -> "bool":
         return _ok.okCScriptValue_GetBool(self)
 
-    def IsString(self) -> bool:
+    def IsString(self) -> "bool":
         return _ok.okCScriptValue_IsString(self)
 
-    def GetString(self) -> str:
+    def GetString(self) -> "std::string":
         return _ok.okCScriptValue_GetString(self)
 
-    def IsBuffer(self) -> bool:
+    def IsBuffer(self) -> "bool":
         return _ok.okCScriptValue_IsBuffer(self)
 
-    def GetBuffer(self):
+    def GetBuffer(self) -> "OpalKelly::Buffer":
         return _ok.okCScriptValue_GetBuffer(self)
 
     __swig_destroy__ = _ok.delete_okCScriptValue
@@ -1750,18 +1882,22 @@ class okCScriptEngine(object):
 
     __repr__ = _swig_repr
 
-    def LoadScript(self, name, code) -> None:
+    def LoadScript(
+        self, name: "std::string const &", code: "std::string const &"
+    ) -> "void":
         return _ok.okCScriptEngine_LoadScript(self, name, code)
 
-    def LoadFile(self, path) -> None:
+    def LoadFile(self, path: "std::string const &") -> "void":
         return _ok.okCScriptEngine_LoadFile(self, path)
 
-    def PrependToScriptPath(self, dir) -> None:
+    def PrependToScriptPath(self, dir: "std::string const &") -> "void":
         return _ok.okCScriptEngine_PrependToScriptPath(self, dir)
 
     __swig_destroy__ = _ok.delete_okCScriptEngine
 
-    def RunScriptFunction(self, *args):
+    def RunScriptFunction(
+        self, *args
+    ) -> "std::vector< OpalKelly::ScriptValue,std::allocator< OpalKelly::ScriptValue > >":
         return _ok.okCScriptEngine_RunScriptFunction(self, *args)
 
 
@@ -1787,25 +1923,27 @@ class FrontPanelManager(object):
 
     __swig_destroy__ = _ok.delete_FrontPanelManager
 
-    def StartMonitoring(self, cbInfo=None) -> None:
+    def StartMonitoring(self, cbInfo: "CallbackInfo" = None) -> "void":
         return _ok.FrontPanelManager_StartMonitoring(self, cbInfo)
 
-    def StopMonitoring(self) -> None:
+    def StopMonitoring(self) -> "void":
         return _ok.FrontPanelManager_StopMonitoring(self)
 
-    def EnterMonitorLoop(self, cbInfo=None, millisecondsTimeout=0) -> int:
+    def EnterMonitorLoop(
+        self, cbInfo: "CallbackInfo" = None, millisecondsTimeout: "int" = 0
+    ) -> "int":
         return _ok.FrontPanelManager_EnterMonitorLoop(self, cbInfo, millisecondsTimeout)
 
-    def ExitMonitorLoop(self, exitCode=0) -> None:
+    def ExitMonitorLoop(self, exitCode: "int" = 0) -> "void":
         return _ok.FrontPanelManager_ExitMonitorLoop(self, exitCode)
 
-    def OnDeviceAdded(self, serial) -> None:
+    def OnDeviceAdded(self, serial: "char const *") -> "void":
         return _ok.FrontPanelManager_OnDeviceAdded(self, serial)
 
-    def OnDeviceRemoved(self, serial) -> None:
+    def OnDeviceRemoved(self, serial: "char const *") -> "void":
         return _ok.FrontPanelManager_OnDeviceRemoved(self, serial)
 
-    def Open(self, serial):
+    def Open(self, serial: "char const *") -> "OpalKellyLegacy::okCFrontPanel *":
         return _ok.FrontPanelManager_Open(self, serial)
 
     def __disown__(self):
@@ -1827,7 +1965,7 @@ class CallbackInfo(object):
     def __init__(self):
         _ok.CallbackInfo_swiginit(self, _ok.new_CallbackInfo())
 
-    def IsUsed(self) -> bool:
+    def IsUsed(self) -> "bool":
         return _ok.CallbackInfo_IsUsed(self)
 
     __swig_destroy__ = _ok.delete_CallbackInfo
@@ -1837,7 +1975,9 @@ class CallbackInfo(object):
 _ok.CallbackInfo_swigregister(CallbackInfo)
 
 
-def FrontPanelEmulateTestDeviceConnection(serial, connect):
+def FrontPanelEmulateTestDeviceConnection(
+    serial: "std::string const &", connect: "bool"
+) -> "OpalKelly::FrontPanel::ErrorCode":
     return _ok.FrontPanelEmulateTestDeviceConnection(serial, connect)
 
 
@@ -1850,13 +1990,13 @@ class okCFrontPanelDevices(object):
     def __init__(self, *args):
         _ok.okCFrontPanelDevices_swiginit(self, _ok.new_okCFrontPanelDevices(*args))
 
-    def GetCount(self) -> int:
+    def GetCount(self) -> "int":
         return _ok.okCFrontPanelDevices_GetCount(self)
 
-    def GetSerial(self, num) -> str:
+    def GetSerial(self, num: "int") -> "std::string":
         return _ok.okCFrontPanelDevices_GetSerial(self, num)
 
-    def Open(self, *args):
+    def Open(self, *args) -> "OpalKelly::FrontPanelPtr":
         return _ok.okCFrontPanelDevices_Open(self, *args)
 
     __swig_destroy__ = _ok.delete_okCFrontPanelDevices
