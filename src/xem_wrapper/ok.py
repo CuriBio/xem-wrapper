@@ -9,11 +9,15 @@ import platform
 from sys import version_info as _swig_python_version_info
 import weakref
 
-print_debug_statements = False
+from stdlib_utils import get_current_file_abs_directory
+
+print_debug_statements = True
+PATH_OF_CURRENT_FILE = get_current_file_abs_directory()
 
 platform_name = platform.system()
 if print_debug_statements:
     print(f"platform_name = {platform_name}")
+    print(f"Current file is located in: {PATH_OF_CURRENT_FILE}")
 _ok_folder: str
 if "linux" in platform_name.lower() or "ubuntu" in platform_name.lower():
     _ok_folder = "_linux"
@@ -30,11 +34,30 @@ if _swig_python_version_info >= (2, 7, 0):
         import importlib
 
         pkg = __name__.rpartition(".")[0]
+        if print_debug_statements:
+            print(f"pkg: {pkg}")
         mname = ".".join((pkg, "_ok")).lstrip(".")
+        if print_debug_statements:
+            print(f"mname: {mname}")
         try:
-            return importlib.import_module(mname)
+            return_value = importlib.import_module(mname)
+            if print_debug_statements:
+                print(
+                    f"Successful using importlib.import_module(mname) to retrieve: {return_value}"
+                )
+            return return_value
         except ImportError:
-            return importlib.import_module("._ok", f"xem_wrapper.{_ok_folder}")
+            if print_debug_statements:
+                print(
+                    f"attempting to run importlib.import_module with an _ok_folder of: {_ok_folder}"
+                )
+            return_value = importlib.import_module("._ok", f"xem_wrapper.{_ok_folder}")
+            if print_debug_statements:
+                print(
+                    f'Successful using importlib.import_module("._ok", f"xem_wrapper._ok_folder" to retrieve: {return_value}'
+                )
+
+            return return_value
 
     _ok = swig_import_helper()
     del swig_import_helper
