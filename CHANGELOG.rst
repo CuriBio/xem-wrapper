@@ -1,7 +1,7 @@
 Changelog for Xem Wrapper
 =========================
 
-0.2.2 (2020-10-27)
+0.2.3 (2020-10-27)
 ------------------
 
 - Re-enabled Mac support in Github Workflow
