@@ -115,6 +115,11 @@ class FrontPanelBase:
         self._is_spi_running = False
         self._serial_number = self.default_xem_serial_number
 
+    def hard_stop(self, timeout: Optional[float] = None) -> Dict[str, Any]:
+        # pylint:disable=no-self-use,unused-argument # Eli (10/27/20): make this compatible with the same interface that InfiniteLoopingParallelismMixIn has
+        out_dict: Dict[str, Any] = dict()
+        return out_dict
+
     def is_board_initialized(self) -> bool:
         return self._is_board_initialized
 
