@@ -106,13 +106,13 @@ jobs:
         run: venv\Scripts\Activate.ps1
 
       - name: Install libboost (Linux)
-        if: runner.os=="Linux"
+        if: runner.os=='Linux'
         run: sudo apt install libboost-all-dev
       - name: Move .so file (Linux)
-        if: runner.os=="Linux"
+        if: runner.os=='Linux'
         run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
       - name: Move .dylib file (MacOS)
-        if: runner.os=="macOS"
+        if: runner.os=='macOS'
         run: sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
       - name: Display Pip Version and confirm environment empty
@@ -265,13 +265,13 @@ jobs:
         run: venv\Scripts\Activate.ps1
 
       - name: Install libboost (Linux)
-        if: runner.os=="Linux"
+        if: runner.os=='Linux'
         run: sudo apt install libboost-all-dev
       - name: Move .so file (Linux)
-        if: runner.os=="Linux"
+        if: runner.os=='Linux'
         run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
       - name: Move .dylib file (MacOS)
-        if: runner.os=="macOS"
+        if: runner.os=='macOS'
         run: sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
       - name: Display Pip Version and confirm environment empty
@@ -420,13 +420,13 @@ jobs:
         run: venv\Scripts\Activate.ps1
 
       - name: Install libboost (Linux)
-        if: runner.os=="Linux"
+        if: runner.os=='Linux'
         run: sudo apt install libboost-all-dev
       - name: Move .so file (Linux)
-        if: runner.os=="Linux"
+        if: runner.os=='Linux'
         run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
       - name: Move .dylib file (MacOS)
-        if: runner.os=="macOS"
+        if: runner.os=='macOS'
         run: sudo cp ./src/xem_wrapper/_mac/libokFrontPanel.dylib /usr/local/lib/
 
       - name: Display Pip Version and confirm environment empty
