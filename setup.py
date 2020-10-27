@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name="xem_wrapper",
-    version="0.2.3",
+    version="0.2.4",
     description="Functions for interacting with a XEM device",
     url="https://github.com/CuriBio/xem-wrapper",
     author="Curi Bio",
