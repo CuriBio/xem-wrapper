@@ -50,8 +50,13 @@ jobs:
 
       - name: Extract version number # Adapted from: https://stackoverflow.com/questions/58033366/how-to-get-current-branch-within-github-actions
         shell: bash
-        run: echo '##[set-output name=package-version;]$(echo $(python .github/workflows/extract_package_info.py package_version)'
+        run: echo '##[set-output name=package-version;]$(echo $(python .github/workflows/extract_package_info.py package_version))'
         id: extract_version
+
+      - name: Display extracted version number
+        shell: bash
+        run: |
+          echo "Version: ${{ steps.extract_version.outputs.package-version }}"
 
       - name: Confirming tag not already present on remote (if publishing)
         if: github.event.inputs.publish_to_pypi == '1' && matrix.IS_FASTEST_JOB == true
