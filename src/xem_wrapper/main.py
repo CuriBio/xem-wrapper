@@ -58,7 +58,7 @@ def read_wire_out(xem: okCFrontPanel, ep_addr: int) -> int:
         The value of the desired wire-out.
     """
     parse_hardware_return_code(xem.UpdateWireOuts())
-    result: int = (xem.GetWireOutValue(ep_addr))
+    result: int = xem.GetWireOutValue(ep_addr)
     parse_hardware_return_code(result)
     return result
 
@@ -237,7 +237,7 @@ def open_board() -> okCFrontPanel:
     Return:
         xem: okCFrontPanel object used to control the XEM7310
     """
-    devices = FrontPanelDevices()  # type: ignore
+    devices = FrontPanelDevices()
     xem = cast(okCFrontPanel, devices.Open())
     if not xem:
         raise OpalKellyNoDeviceFoundError()
@@ -268,7 +268,7 @@ def check_file_exists(file_path: str) -> None:
 
 
 def _get_device_info(xem: okCFrontPanel) -> okTDeviceInfo:
-    info = cast(okTDeviceInfo, okTDeviceInfo())  # type: ignore
+    info = cast(okTDeviceInfo, okTDeviceInfo())
 
     hardware_return_code = xem.GetDeviceInfo(info)
     parse_hardware_return_code(hardware_return_code)

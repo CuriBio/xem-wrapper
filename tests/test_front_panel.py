@@ -81,6 +81,15 @@ def test_FrontPanelBase_class_attributes():
     assert FrontPanelBase.default_xem_serial_number == "1917000Q70"
 
 
+def test_FrontPanelBase__has_hard_stop_method_with_same_signature_as_stdlib_utils_InfiniteLoopingParallelismMixIn():
+    fp = FrontPanelBase()
+    actual = fp.hard_stop()
+    assert isinstance(actual, dict) is True
+
+    # can accept a kwarg for timeout without raising an error
+    fp.hard_stop(timeout=5.5)
+
+
 def test_FrontPanelBase__initialize_board__sets_internal_board_state():
     fp = FrontPanelBase()
     assert fp.is_board_initialized() is False
