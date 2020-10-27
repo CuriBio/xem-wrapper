@@ -226,11 +226,11 @@ jobs:
 
         run: twine upload --repository testpypi dist/*
 
-      - name: Sleep for 75 seconds to allow Test PyPI Index to update before proceeding to the next step
+      - name: Sleep for 120 seconds to allow Test PyPI Index to update before proceeding to the next step
         if: github.event.inputs.publish_to_pypi == '1'
         uses: juliangruber/sleep-action@v1
         with:
-          time: 75s
+          time: 120s
 
   install_from_test_pypi:
     needs: [publish_to_test_pypi]
@@ -381,11 +381,11 @@ jobs:
 
         run: twine upload dist/*
 
-      - name: Sleep for 75 seconds to allow PyPI Index to update before proceeding to the next step
+      - name: Sleep for 120 seconds to allow PyPI Index to update before proceeding to the next step
         if: github.event.inputs.publish_to_pypi == '1'
         uses: juliangruber/sleep-action@v1
         with:
-          time: 75s
+          time: 120s
 
 
   install_from_pypi:
