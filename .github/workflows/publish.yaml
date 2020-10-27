@@ -293,10 +293,11 @@ jobs:
 
       - name: Install Main Package From Test PyPI
         if: github.event.inputs.publish_to_pypi == '1'
-        run: |
-          echo Extracted package name: ${{ steps.extract_package_info.outputs.package-name }}
-          echo Extracted package version: ${{ steps.extract_package_info.outputs.package-version }}
-          pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple ${{ steps.extract_package_info.outputs.package-name }}==${{ steps.extract_package_info.outputs.package-version }}
+        run: python .github/workflows/extract_package_info.py install_from_test_pypi
+        # |
+        #   echo Extracted package name: ${{ steps.extract_package_info.outputs.package-name }}
+        #   echo Extracted package version: ${{ steps.extract_package_info.outputs.package-version }}
+        #   pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple ${{ steps.extract_package_info.outputs.package-name }}==${{ steps.extract_package_info.outputs.package-version }}
 
       - name: Install Main Package From Local repo as test since not publishing to PyPI
         if: github.event.inputs.publish_to_pypi != '1'
@@ -316,11 +317,11 @@ jobs:
 
       - name: Run Tests with randomly generated seed
         if: github.event.inputs.randomlyseed == ''
-        run: pytest -xsvv --full-ci --include-slow-tests
+        run: pytest -xsvv --full-ci --include-slow-tests --cov-fail-under=0
 
       - name: Run Tests with supplied pytest-randomly seed
         if: github.event.inputs.randomlyseed != ''
-        run: pytest -xsvv --full-ci --include-slow-tests --randomly-seed=${{ github.event.inputs.randomlyseed }}
+        run: pytest -xsvv --full-ci --include-slow-tests --randomly-seed=${{ github.event.inputs.randomlyseed }}--cov-fail-under=0
 
   publish_to_pypi:
     needs: [install_from_test_pypi]
@@ -448,10 +449,11 @@ jobs:
 
       - name: Install Main Package From PyPI
         if: github.event.inputs.publish_to_pypi == '1'
-        run: |
-          echo Extracted package name: ${{ steps.extract_package_info.outputs.package-name }}
-          echo Extracted package version: ${{ steps.extract_package_info.outputs.package-version }}
-          pip install ${{ steps.extract_package_info.outputs.package-name }}==${{ steps.extract_package_info.outputs.package-version }}
+        run: python .github/workflows/extract_package_info.py install_from_pypi
+        # |
+        #   echo Extracted package name: ${{ steps.extract_package_info.outputs.package-name }}
+        #   echo Extracted package version: ${{ steps.extract_package_info.outputs.package-version }}
+        #   pip install ${{ steps.extract_package_info.outputs.package-name }}==${{ steps.extract_package_info.outputs.package-version }}
 
       - name: Install Main Package From Local repo as test since not publishing to PyPI
         if: github.event.inputs.publish_to_pypi != '1'
@@ -471,11 +473,11 @@ jobs:
 
       - name: Run Tests with randomly generated seed
         if: github.event.inputs.randomlyseed == ''
-        run: pytest -xsvv --full-ci --include-slow-tests
+        run: pytest -xsvv --full-ci --include-slow-tests --cov-fail-under=0
 
       - name: Run Tests with supplied pytest-randomly seed
         if: github.event.inputs.randomlyseed != ''
-        run: pytest -xsvv --full-ci --include-slow-tests --randomly-seed=${{ github.event.inputs.randomlyseed }}
+        run: pytest -xsvv --full-ci --include-slow-tests --randomly-seed=${{ github.event.inputs.randomlyseed }} --cov-fail-under=0
 
   create_tag:
     needs: [install_from_pypi]
