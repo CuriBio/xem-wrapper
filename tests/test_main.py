@@ -387,7 +387,9 @@ def test_set_run_mode__raises_correct_error(
     ],
 )
 def test_set_num_samples__xem_methods_called_with_correct_signature(
-    test_num_samples, test_description, mocker,
+    test_num_samples,
+    test_description,
+    mocker,
 ):
     dummy_xem = okCFrontPanel()
     mocked_set_method = mocker.patch.object(main, "set_wire_in", autospec=True)
@@ -1020,7 +1022,10 @@ def test_activate_trigger_in__calls_method_with_correct_signature(
     ],
 )
 def test_activate_trigger_in__raises_correct_errors(
-    test_mock_activate_value, expected_error, test_description, mocker,
+    test_mock_activate_value,
+    expected_error,
+    test_description,
+    mocker,
 ):
     dummy_xem = okCFrontPanel()
     mocker.patch.object(
