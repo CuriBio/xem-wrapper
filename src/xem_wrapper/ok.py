@@ -211,14 +211,20 @@ class okStrings(object):
         return _ok.okStrings___len__(self)
 
     def __getslice__(
-        self, i, j,
+        self,
+        i,
+        j,
     ):
         return _ok.okStrings___getslice__(self, i, j)
 
     def __setslice__(self, *args) -> None:
         return _ok.okStrings___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i,
+        j,
+    ) -> None:
         return _ok.okStrings___delslice__(self, i, j)
 
     def __delitem__(self, *args) -> None:
@@ -281,7 +287,11 @@ class okStrings(object):
     def back(self):
         return _ok.okStrings_back(self)
 
-    def assign(self, n, x,) -> None:
+    def assign(
+        self,
+        n,
+        x,
+    ) -> None:
         return _ok.okStrings_assign(self, n, x)
 
     def resize(self, *args) -> None:
@@ -331,14 +341,20 @@ class okCScriptValues(object):
         return _ok.okCScriptValues___len__(self)
 
     def __getslice__(
-        self, i, j,
+        self,
+        i,
+        j,
     ):
         return _ok.okCScriptValues___getslice__(self, i, j)
 
     def __setslice__(self, *args) -> None:
         return _ok.okCScriptValues___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i,
+        j,
+    ) -> None:
         return _ok.okCScriptValues___delslice__(self, i, j)
 
     def __delitem__(self, *args) -> None:
@@ -445,14 +461,20 @@ class okDeviceSensors(object):
         return _ok.okDeviceSensors___len__(self)
 
     def __getslice__(
-        self, i, j,
+        self,
+        i,
+        j,
     ):
         return _ok.okDeviceSensors___getslice__(self, i, j)
 
     def __setslice__(self, *args) -> None:
         return _ok.okDeviceSensors___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i,
+        j,
+    ) -> None:
         return _ok.okDeviceSensors___delslice__(self, i, j)
 
     def __delitem__(self, *args) -> None:
@@ -559,14 +581,20 @@ class okTRegisterEntries(object):
         return _ok.okTRegisterEntries___len__(self)
 
     def __getslice__(
-        self, i, j,
+        self,
+        i,
+        j,
     ):
         return _ok.okTRegisterEntries___getslice__(self, i, j)
 
     def __setslice__(self, *args) -> None:
         return _ok.okTRegisterEntries___setslice__(self, *args)
 
-    def __delslice__(self, i, j,) -> None:
+    def __delslice__(
+        self,
+        i,
+        j,
+    ) -> None:
         return _ok.okTRegisterEntries___delslice__(self, i, j)
 
     def __delitem__(self, *args) -> None:
@@ -1342,7 +1370,9 @@ class okCFrontPanel(object):
         return _ok.okCFrontPanel_AddCustomDevice(matchInfo, devInfo)
 
     @staticmethod
-    def RemoveCustomDevice(productID: int,):
+    def RemoveCustomDevice(
+        productID: int,
+    ):
         return _ok.okCFrontPanel_RemoveCustomDevice(productID)
 
     def GetHostInterfaceWidth(self) -> int:
@@ -1356,7 +1386,9 @@ class okCFrontPanel(object):
         return _ok.okCFrontPanel_FindUSBDeviceModel(usbVID, usbPID)
 
     @staticmethod
-    def GetBoardModelString(m,) -> str:
+    def GetBoardModelString(
+        m,
+    ) -> str:
         return _ok.okCFrontPanel_GetBoardModelString(m)
 
     def GetDeviceCount(self) -> int:
@@ -1458,7 +1490,9 @@ class okCFrontPanel(object):
     def SetEepromPLL22393Configuration(self, pll):
         return _ok.okCFrontPanel_SetEepromPLL22393Configuration(self, pll)
 
-    def LoadDefaultPLLConfiguration(self,):
+    def LoadDefaultPLLConfiguration(
+        self,
+    ):
         return _ok.okCFrontPanel_LoadDefaultPLLConfiguration(self)
 
     def IsHighSpeed(self) -> bool:
@@ -1562,7 +1596,9 @@ class okCFrontPanel(object):
     def ConfigureFPGAFromMemory(self, data) -> int:
         return _ok.okCFrontPanel_ConfigureFPGAFromMemory(self, data)
 
-    def GetDeviceSensors(self,):
+    def GetDeviceSensors(
+        self,
+    ):
         return _ok.okCFrontPanel_GetDeviceSensors(self)
 
     def CreateLuaScriptEngine(self):
@@ -1581,7 +1617,9 @@ def okCFrontPanel_AddCustomDevice(matchInfo, devInfo=None):
     return _ok.okCFrontPanel_AddCustomDevice(matchInfo, devInfo)
 
 
-def okCFrontPanel_RemoveCustomDevice(productID: int,):
+def okCFrontPanel_RemoveCustomDevice(
+    productID: int,
+):
     return _ok.okCFrontPanel_RemoveCustomDevice(productID)
 
 
@@ -1589,7 +1627,9 @@ def okCFrontPanel_FindUSBDeviceModel(usbVID, usbPID):
     return _ok.okCFrontPanel_FindUSBDeviceModel(usbVID, usbPID)
 
 
-def okCFrontPanel_GetBoardModelString(m,) -> str:
+def okCFrontPanel_GetBoardModelString(
+    m,
+) -> str:
     return _ok.okCFrontPanel_GetBoardModelString(m)
 
 
