@@ -51,7 +51,11 @@ def pip_install(test_pypi: Optional[bool] = False) -> None:
             ]
         )
     print(f"About to run with args: {args}")  # allow-print
-    subprocess.run(args)  # nosec # B603 shell is false, but input is secure
+    subprocess_results = (
+        subprocess.run(args)  # nosec # B603 shell is false, but input is secure
+    )
+    if subprocess_results.returncode != 0:
+        sys.exit(subprocess_results.returncode)
 
 
 if __name__ == "__main__":
