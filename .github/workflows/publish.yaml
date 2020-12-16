@@ -20,15 +20,18 @@ jobs:
       matrix:
         os:
           - "ubuntu-18.04"
+          - "ubuntu-20.04"
           - "windows-2019"
           - "macos-10.15"
+          - "macos-11.0"
         python-version:
             - 3.7
             - 3.8
+            - 3.9
         include:
           # only enable coverage on the fastest job
-          - os: "ubuntu-18.04"
-            python-version: "3.7"
+          - os: "ubuntu-20.04"
+            python-version: "3.8"
             IS_FASTEST_JOB: true
 
     name: Test code befoer publishing in Python ${{ matrix.python-version }} on ${{ matrix.os }}
@@ -174,9 +177,9 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - "ubuntu-18.04"
+          - "ubuntu-20.04"
         python-version:
-            - 3.7
+            - 3.9
     name: Publish to Test PyPI for Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -239,11 +242,14 @@ jobs:
       matrix:
         os:
           - "ubuntu-18.04"
+          - "ubuntu-20.04"
           - "windows-2019"
           - "macos-10.15"
+          - "macos-11.0"
         python-version:
             - 3.7
             - 3.8
+            - 3.9
     name: Install from Test PyPI and run tests on Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -329,9 +335,9 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - "ubuntu-18.04"
+          - "ubuntu-20.04"
         python-version:
-            - 3.7
+            - 3.9
     name: Publish to PyPI for Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -395,11 +401,14 @@ jobs:
       matrix:
         os:
           - "ubuntu-18.04"
+          - "ubuntu-20.04"
           - "windows-2019"
           - "macos-10.15"
+          - "macos-11.0"
         python-version:
             - 3.7
             - 3.8
+            - 3.9
     name: Test installation from PyPI for Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -485,7 +494,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - "ubuntu-18.04"
+          - "ubuntu-20.04"
     name: Creating tag on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
