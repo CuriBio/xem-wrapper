@@ -14,7 +14,7 @@ pytest-randomly==3.5.0
 sphinx==3.3.1
 pylint==2.6.0
 pytest-pylint==0.18.0
-chardet==3.0.2 # Eli (12/14/20) special requirement to resolve conflict with requests package
+chardet==4.0.0 # Eli (12/14/20) special requirement to resolve conflict with requests package
 zest.releaser[recommended]==6.22.1
 
 pytest-mock==3.4.0
