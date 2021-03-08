@@ -115,7 +115,7 @@ jobs:
 
       - name: Install libboost (Linux)
         if: runner.os=='Linux'
-        run: sudo apt install libboost-all-dev
+        run: sudo apt-get install libboost-all-dev
       - name: Move .so file (Linux)
         if: runner.os=='Linux'
         run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
