@@ -17,6 +17,12 @@ repos:
     rev: '0.3.0'  # pick a hash or tag to point to
     hooks:
     -   id: zimports
+        name: Run zimports on everything except init
+        exclude: __init__.py
+    -   id: zimports
+        name: Run zimports on __init__.py and keep unused imports
+        files: __init__.py
+        args: [--keep-unused]
 
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.4.0  # Use the ref you want to point at
@@ -73,6 +79,7 @@ repos:
     -   id: debug-statements
     -   id: check-merge-conflict
     -   id: check-case-conflict
+    -   id: end-of-file-fixer
 
 # Linting
 -   repo: https://github.com/pre-commit/mirrors-mypy
