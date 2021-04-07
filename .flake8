@@ -7,8 +7,10 @@
 
 # E203 is not PEP8 compliant -- should be ignored https://github.com/psf/black/issues/315
 
+# F401 is being handled by zimports
+
 max-line-length = 80
 select = C,E,F,W,B,B950
-ignore = E501,W503,E231,E203
+ignore = E501,W503,E231,E203,F401
 import-order-style = google
 application-import-names = pyqt_test_utils
