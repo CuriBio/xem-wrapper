@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name="xem_wrapper",
-    version="0.2.5",
+    version="0.3.0",
     description="Functions for interacting with a XEM device",
     url="https://github.com/CuriBio/xem-wrapper",
     author="Curi Bio",
@@ -22,9 +22,9 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Topic :: Scientific/Engineering",
     ],
-    install_requires=["stdlib_utils>=0.2.1"],
+    install_requires=["stdlib_utils>=0.5.2"],
 )

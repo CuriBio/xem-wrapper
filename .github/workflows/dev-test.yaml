@@ -23,15 +23,17 @@ jobs:
       matrix:
         os:
           - "ubuntu-18.04"
+          - "ubuntu-20.04"
           - "windows-2019"
           - "macos-10.15"
+          - "macos-11.0"
         python-version:
-            - 3.7
             - 3.8
+            - 3.9
         include:
           # only enable coverage on the fastest job
-          - os: "ubuntu-18.04"
-            python-version: "3.7"
+          - os: "ubuntu-20.04"
+            python-version: "3.8"
             IS_FASTEST_JOB: true
 
     name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
@@ -51,16 +53,6 @@ jobs:
           python -c "import sys; print(sys.version)"
           python -m venv venv
 
-      - name: Cache Pre-commit hooks
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-pre-commit-hooks
-        if: matrix.IS_FASTEST_JOB == true
-        with:
-          path: ./.precommit_cache
-          key: ${{ matrix.os }}-${{ matrix.python-version }}-build-${{ env.cache-name }}-${{ hashFiles('**/.pre-commit-config.yaml') }}
-          restore-keys: |
-            ${{ matrix.os }}-${{ matrix.python-version }}-build-${{ env.cache-name }}-
 
       - name: Activate virtual environment (Linux/MacOS)
         if: runner.os == 'Linux' || runner.os == 'macOS'
@@ -71,7 +63,9 @@ jobs:
 
       - name: Install libboost (Linux)
         if: runner.os=='Linux'
-        run: sudo apt install libboost-all-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install libboost-all-dev
       - name: Move .so file (Linux)
         if: runner.os=='Linux'
         run: sudo cp ./src/xem_wrapper/_linux/libokFrontPanel.so /lib/
@@ -92,14 +86,6 @@ jobs:
       - name: Log full installed packages
         run: pip freeze
 
-      - name: Run pre-commit hooks
-        if: matrix.IS_FASTEST_JOB == true
-        env:
-          PRE_COMMIT_HOME: ./.precommit_cache
-        # only enable pre-commit on the fastest job
-        run: |
-          pre-commit install
-          pre-commit run -a
 
       - name: Run Tests with randomly generated seed
         if: github.event.inputs.randomlyseed == ''

@@ -1,10 +1,10 @@
-minimum_pre_commit_version: '2.4.0'
+minimum_pre_commit_version: '2.9.3'
 fail_fast: false
 repos:
 
 # Git-related
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0  # Use the ref you want to point at
+    rev: v3.4.0  # Use the ref you want to point at
     hooks:
     -   id: forbid-new-submodules
 -   repo: https://github.com/jumanjihouse/pre-commit-hooks
@@ -19,7 +19,7 @@ repos:
     -   id: zimports
 
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0  # Use the ref you want to point at
+    rev: v3.4.0  # Use the ref you want to point at
     hooks:
         # black and docformatter don't do this in docstrings (11/1/19)
     -   id: trailing-whitespace
@@ -50,19 +50,19 @@ repos:
     -   id: python-safety-dependencies-check
 
 -   repo: https://github.com/PyCQA/bandit
-    rev: '1.6.2'
+    rev: '1.7.0'
     hooks:
     -   id: bandit
         exclude: tests*
 
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0  # Use the ref you want to point at
+    rev: v3.4.0  # Use the ref you want to point at
     hooks:
     -   id: detect-private-key
 
 # Invalid File Checks
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0  # Use the ref you want to point at
+    rev: v3.4.0  # Use the ref you want to point at
     hooks:
     -   id: check-added-large-files
         args: ['--maxkb=123']
@@ -106,30 +106,4 @@ repos:
             # ignore D413 about final blank line because docformatter gets rid of it
             # ignore D213 because mutually exclusive with D212 https://stackoverflow.com/questions/45990301/pep257-d212-and-d213-conflicts
         - --ignore=D100,D101,D102,D103,D104,D105,D106,D107,D203,D407,D408,D409,D406,D413,D213
-        exclude: (prerelease.py)|(src/xem_wrapper/ok.py)
-
--   repo: https://github.com/NanoSurface-Biomedical/pre-commit-pylint
-    rev: "5a76725fa664ca733db485598da5c8460cf3347f" # pick a git hash / tag to point to
-    hooks:
-    -   id: pylint-pass-with-displayed-warnings
-        name: pylint-src
-        args:
-        - --codes-to-allow=W0511
-        - src
-        - --rcfile=src/pylintrc
-        - --ignore-patterns=.*~.*,.*ok\.py$
-        files: 'src/.*\.py$'
-        exclude: ('.*\~.*')|(prerelease.py)|(src/opalkelly_wrapper/ok.py)
-        verbose: true
-    -   id: pylint-pass-with-displayed-warnings
-        name: pylint-tests
-        args:
-        - --codes-to-allow=W0511
-        - tests
-        - --rcfile=tests/pylintrc
-        - --ignore-patterns=.*~.*
-        files: 'tests/.*\.py$'
-        exclude: ('.*\~.*')|(prerelease.py)(src/opalkelly_wrapper/ok.py)
-        verbose: true
-    -   id: python-check-no-print-statments
         exclude: (prerelease.py)|(src/xem_wrapper/ok.py)

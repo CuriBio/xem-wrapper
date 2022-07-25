@@ -38,7 +38,7 @@ from .main import set_wire_in
 from .main import start_acquisition
 from .main import stop_acquisition
 from .main import validate_device_id
-from .ok import okCFrontPanel
+from .ok_wrapper import okCFrontPanel
 
 GenericFunctionType = TypeVar(
     "GenericFunctionType", bound=Callable[..., Any]
