@@ -26,5 +26,5 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Topic :: Scientific/Engineering",
     ],
-    install_requires=["stdlib_utils>=0.2.1"],
+    install_requires=["stdlib_utils>=0.5.2"],
 )
