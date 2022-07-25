@@ -25,9 +25,9 @@ from .exceptions import OpalKellyNoDeviceFoundError
 from .exceptions import OpalKellySampleIdxNotFourBytesError
 from .exceptions import OpalKellyWordNotTwoBytesError
 from .exceptions import parse_hardware_return_code
-from .ok import FrontPanelDevices
-from .ok import okCFrontPanel
-from .ok import okTDeviceInfo
+from .ok_wrapper import FrontPanelDevices
+from .ok_wrapper import okCFrontPanel
+from .ok_wrapper import okTDeviceInfo
 
 
 def build_header_magic_number_bytes(header_magic_number: int) -> bytearray:

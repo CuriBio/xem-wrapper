@@ -50,9 +50,9 @@ from xem_wrapper import WIRE_IN_RESET_MODE
 from xem_wrapper import WIRE_OUT_IS_PLL_LOCKED
 from xem_wrapper import WIRE_OUT_IS_SPI_RUNNING
 from xem_wrapper import WIRE_OUT_NUM_WORDS_FIFO
-from xem_wrapper.main import FrontPanelDevices
-from xem_wrapper.ok import okCFrontPanel
-from xem_wrapper.ok import okTDeviceInfo
+from xem_wrapper import FrontPanelDevices
+from xem_wrapper import okCFrontPanel
+from xem_wrapper import okTDeviceInfo
 
 from .fixtures import fixture_test_bit_file_paths
 
@@ -61,7 +61,6 @@ __fixtures__ = [fixture_test_bit_file_paths]
 
 
 def test_build_header_magic_number_bytes__returns_correct_bytearray_with_mantarray_header():
-
     expected_bytes = struct.pack(
         "<2L",
         (HEADER_MAGIC_NUMBER & 0xFFFFFFFF00000000) >> 32,
