@@ -2,11 +2,11 @@ Changelog for Xem Wrapper
 =========================
 
 
-0.3.0 (unreleased)
+0.3.0 (2022-07-25)
 ------------------
 
-- Dropped support for python 3.7 due to failing CI runs
-  (see https://github.com/CuriBio/xem-wrapper/runs/2073895097?check_suite_focus=true).
+- Dropped support for python 3.7 due to failing CI runs.
+- Patch imports on arm devices.
 
 
 0.2.5 (2020-10-27)
