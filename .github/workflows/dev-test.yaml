@@ -52,7 +52,7 @@ jobs:
           python -m venv venv
 
       - name: Cache Pre-commit hooks
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-pre-commit-hooks
         if: matrix.IS_FASTEST_JOB == true
